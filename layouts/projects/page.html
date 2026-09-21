@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article>
+  <div class="page-head">
+    <a class="label back" href="{{ site.Home.RelPermalink }}#projects">← Projects</a>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="lede">{{ . }}</p>{{ end }}
+    {{ partial "tags.html" . }}
+    {{ with .Params.links }}<p class="links">{{ range . }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}</p>{{ end }}
+  </div>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}

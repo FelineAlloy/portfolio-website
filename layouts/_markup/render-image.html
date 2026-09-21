@@ -1,0 +1,5 @@
+{{- /* ![alt](src "caption"): src may be a page-bundle file, a /path from static/, or a full URL. */ -}}
+{{- $src := .Destination -}}
+{{- $res := .PageInner.Resources.Get $src -}}
+{{- if $res }}{{ $src = $res.RelPermalink }}{{ else if hasPrefix $src "/" }}{{ $src = $src | strings.TrimPrefix "/" | relURL }}{{ end -}}
+<span class="fig"><img src="{{ $src }}" alt="{{ .Text }}" loading="lazy">{{ with .Title }}<span class="cap hand">{{ . }}</span>{{ end }}</span>

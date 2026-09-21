@@ -1,0 +1,4 @@
+<footer class="site-footer" id="contact">
+  {{ with site.Params.footnote }}<p class="hand">{{ . }}</p>{{ end }}
+  <p class="links">{{ range site.Params.links }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}</p>
+</footer>

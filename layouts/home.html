@@ -1,0 +1,9 @@
+{{ define "main" }}
+<div class="hero">
+  {{ with .Params.role }}<div class="label">{{ . }}</div>{{ end }}
+  <h1>{{ .Title }}
+    <svg class="swash" viewBox="0 0 96 10" fill="none" aria-hidden="true"><path d="M2 6C20 2 30 9 48 5S76 8 94 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </h1>
+</div>
+<div class="prose">{{ .Content }}</div>
+{{ end }}

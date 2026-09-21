@@ -1,0 +1,6 @@
+{{- with or .Params.status .Params.tags -}}
+<div class="tags">
+  {{- with $.Params.status }}<em class="hand">{{ . }}</em>{{ end -}}
+  {{- range $.Params.tags }}<span>{{ . }}</span>{{ end -}}
+</div>
+{{- end -}}
