@@ -1,6 +1,9 @@
-/* Tokens. Dark mode is near-neutral; green survives only as the accent. */
+/* Tokens. Light is the default for every visitor, regardless of OS/browser
+   preference. Dark mode is near-neutral; green survives only as the accent.
+   It's opt-in only: set data-theme="dark" on <html> to use it (no toggle
+   is wired up yet — this is a ready hook for adding one later). */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --paper: #FAFAF6; --card: #FFFFFF; --border: #E4E4DA;
   --ink: #1C1D18; --ink-soft: #6B6E60;
   --accent: #2F6B4F; --accent-soft: #EDF2EC;
@@ -8,12 +11,11 @@
   --mono: 'IBM Plex Mono', ui-monospace, monospace;
   --hand: 'Caveat', cursive;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #161616; --card: #1C1C1C; --border: #2C2C2C;
-    --ink: #EBEBE6; --ink-soft: #98988F;
-    --accent: #5FAE88; --accent-soft: #1C1F1D;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #161616; --card: #1C1C1C; --border: #2C2C2C;
+  --ink: #EBEBE6; --ink-soft: #98988F;
+  --accent: #5FAE88; --accent-soft: #1C1F1D;
 }
 
 * { box-sizing: border-box; }
