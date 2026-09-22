@@ -12,3 +12,5 @@ IP Paris Racing Team competes in Formula Student, an international engineering c
 - Designed the Brake System Plausibility Device (BSPD): a non-programmable, system-critical circuit that cuts power when the brake and accelerator are pressed at the same time.
 - Designed the "ready to drive" circuit, responsible for powering on the car.
 - Verified both boards meet the competition's technical rules.
+
+![BSPD PCB layout](bspd-pcb.png "BSPD PCB designed by me.")
