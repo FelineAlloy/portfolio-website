@@ -10,9 +10,9 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #161615; --card: #1C1C1B; --border: #2C2C2A;
+    --paper: #161616; --card: #1C1C1C; --border: #2C2C2C;
     --ink: #EBEBE6; --ink-soft: #98988F;
-    --accent: #5FAE88; --accent-soft: #1B211E;
+    --accent: #5FAE88; --accent-soft: #1C1F1D;
   }
 }
 
