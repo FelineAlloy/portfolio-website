@@ -10,7 +10,7 @@ disableKinds = ["section", "taxonomy", "term", "rss", "sitemap"]
   codeFences = false
 
 [params]
-  description = "TODO: one-sentence description used for search engines and link previews."
+  description = "Portfolio of Luxin Matasaru: Mathematics & Computer Science student at École Polytechnique working on reinforcement learning and embedded systems."
 
   # Footer links. Add e.g. Email / CV / Google Scholar entries here.
   [[params.links]]
