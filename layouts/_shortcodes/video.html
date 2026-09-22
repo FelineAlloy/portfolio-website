@@ -1,0 +1,5 @@
+{{- /* {{< video "file.mp4" "caption" >}}: file may be a page-bundle resource or a /path from static/. */ -}}
+{{- $src := .Get 0 -}}
+{{- $res := .Page.Resources.Get $src -}}
+{{- if $res }}{{ $src = $res.RelPermalink }}{{ else if hasPrefix $src "/" }}{{ $src = $src | strings.TrimPrefix "/" | relURL }}{{ end -}}
+<span class="fig fig-video"><video src="{{ $src }}" controls playsinline loop muted></video>{{ with .Get 1 }}<span class="cap hand">{{ . }}</span>{{ end }}</span>

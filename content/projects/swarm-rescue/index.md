@@ -1,8 +1,7 @@
 ---
 title: "Swarm Rescue"
 summary: "A drone-swarm rescue strategy for the Swarm-Rescue simulation competition."
-date: 2025-03-10 # TODO: replace with the date that fits
-tags: ["Multi-Agent", "Robotics", "Python"]
+date: 2024
 links:
   - name: Code
     url: https://github.com/FelineAlloy/swarm-rescue
@@ -13,10 +12,14 @@ Swarm-Rescue is a simulation competition in which a team of 10 drones has to exp
 
 Each drone senses its surroundings through a 360° LIDAR, a semantic sensor, GPS, a compass and an odometer. Submissions are scored on the share of people rescued, the fraction of the map explored, the health of the drones, and the time remaining. The simulator is built on Pymunk and Arcade.
 
-## My approach
+## Our approach
 
-TODO: describe the strategy: exploration, coordination between drones, handling the dead zones.
+- State machine controller for high level decision making.
+- PID controller for the drone’s motion.
+- Segmentatoion of the map into a grid and Dijkstra's algorithm for pathfinding.
 
 ## Results
 
-TODO: team name, ranking and score. The 2024-25 France leaderboard is linked above.
+I was part of [team 14](https://emmanuel-battesti.github.io/swarm-rescue-website/leaderboard_2024_25_fra/). We were one of only 10 teams to make it to the final round!
+
+{{< video "team14_MyMapIntermediate01_none_rd1.mp4" "Our algorithm on a simple map" >}}

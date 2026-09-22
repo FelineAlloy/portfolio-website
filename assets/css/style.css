@@ -70,11 +70,14 @@ nav a:hover { color: var(--accent); }
 
 /* Images (render hook) and gallery shortcode */
 .fig { display: block; }
-.fig img { display: block; }
+.fig img, .fig video { display: block; max-width: 100%; }
 .cap { display: block; margin-top: 4px; font-size: 1.05rem; color: var(--ink-soft); }
-.gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.fig-video { margin: 0 0 14px; }
+.fig-video video { width: auto; max-width: 100%; margin: 0 auto; }
+.gallery { display: flex; gap: 0; margin-bottom: 14px; }
 .gallery p { display: contents; }
-.gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 2px; }
+.gallery .fig { flex: 1 1 0; min-width: 0; }
+.gallery img { width: 100%; height: auto; display: block; }
 
 /* Project cards (projects shortcode). Declared after .prose so these win at equal specificity. */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin-bottom: 14px; border-top: 1px solid var(--border); border-left: 1px solid var(--border); }
