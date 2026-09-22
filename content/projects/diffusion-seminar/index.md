@@ -8,4 +8,4 @@ links:
 ---
 Covered intuition and the mathematics of DDPM.
 
-Event organized in collaboration with the [CS Committee](https://www.linkedin.com/posts/bxai_ai-diffusionmodels-bxai-ugcPost-7320091607020539904-H9B7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEHM4dMBZ8TF9Dk1OPQf39OPRqoBwXPlHds) of the École Polytechnique.Bachelor.
+Event organized in collaboration with the [CS Committee](https://www.linkedin.com/posts/bxai_ai-diffusionmodels-bxai-ugcPost-7320091607020539904-H9B7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEHM4dMBZ8TF9Dk1OPQf39OPRqoBwXPlHds) of the École Polytechnique.

@@ -32,7 +32,7 @@ Evaluated my implementation on 5 games of the Atari 2600 benchmark. Matched the 
 | Phoenix | 8,485.2 | 17,490 | 65,767 | 16,585 | **124,298** |
 | Q*Bert | 13,117.3 | 23,784 | 26,946 | **572,510** | 26,822 |
 
-*Best agent performance: max of the average score over 10 games evaluated every 1M setps during training. Higher is better.*
+*Best agent performance: max of the average score over 10 games evaluated every 1M steps during training. Higher is better.*
 
 Our results above were obtained with κ_huber = 1, same as QRDQN-1.
 
@@ -40,7 +40,7 @@ Our results above were obtained with κ_huber = 1, same as QRDQN-1.
 ![Battle Zone](SS_BattleZone.png "Battle Zone")
 ![Double Dunk](SS_DoubleDunk.png "Double Dunk")
 ![Name this Game](SS_NameThisGame.png "Name this Game")
-![Phoenix](SS_Pheonix.png "Phoenix")
+![Phoenix](SS_Phoenix.png "Phoenix")
 ![Q*Bert](SS_QBert.png "Q*Bert")
 {{< /gallery >}}
 

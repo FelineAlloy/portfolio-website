@@ -16,7 +16,7 @@ Each drone senses its surroundings through a 360° LIDAR, a semantic sensor, GPS
 
 - State machine controller for high level decision making.
 - PID controller for the drone’s motion.
-- Segmentatoion of the map into a grid and Dijkstra's algorithm for pathfinding.
+- Segmentation of the map into a grid and Dijkstra's algorithm for pathfinding.
 
 ## Results
 
