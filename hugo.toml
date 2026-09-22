@@ -11,7 +11,6 @@ disableKinds = ["section", "taxonomy", "term", "rss", "sitemap"]
 
 [params]
   description = "TODO: one-sentence description used for search engines and link previews."
-  footnote = "TODO: short sign-off"
 
   # Footer links. Add e.g. Email / CV / Google Scholar entries here.
   [[params.links]]
