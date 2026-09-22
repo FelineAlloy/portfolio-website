@@ -18,6 +18,8 @@ Wrote a [report](QRDQN_Report.pdf) and held a [defense](QRDQN_Presentation.pdf) 
 
 {{< video "rl-video-episode-8.mp4" "Our QRDQN implementation playing Q*Bert" >}}
 
+<!-- ![[Pong Distribution]](pong_distrib.png "Example of generated cumulative distribution functions.") -->
+
 ## Results
 
 Evaluated my implementation on 5 games of the Atari 2600 benchmark. Matched the performance of the original paper on these games.
