@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="shell page">
+  <header class="page__head">
+    <a class="page__back" href="{{ site.Home.RelPermalink }}">{{ partial "icon.html" "arrow-left" }}Home</a>
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{- with .Content }}<div class="page__lede">{{ . }}</div>{{ end }}
+  </header>
+  <ol class="roles">
+    {{- range .Pages.ByDate.Reverse }}
+    <li>{{ partial "experience/role.html" . }}</li>
+    {{- end }}
+  </ol>
+</div>
+{{ end }}
