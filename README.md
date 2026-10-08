@@ -1,6 +1,6 @@
 # Portfolio website
 
-A small, static research portfolio built with [Hugo](https://gohugo.io) and hosted on GitHub Pages. No theme, no JavaScript, no dependencies beyond the `hugo` binary. Every page is a markdown file.
+A small, static research portfolio built with [Hugo](https://gohugo.io) and hosted on GitHub Pages. No npm, no CSS framework, no JavaScript: the only tool is the `hugo` binary. Every page is a markdown file.
 
 ## Run locally
 
@@ -15,26 +15,41 @@ hugo server -D     # also show drafts
 
 | To change | Edit |
 |---|---|
-| Home page (bio, research list, section text) | `content/_index.md` |
-| Name, footer links, nav, site description | `hugo.toml` |
-| A project page | `content/projects/<slug>.md` |
+| Name, affiliation line, bio, portrait | `content/_index.md` |
+| Email addresses, CV/GitHub/LinkedIn buttons, nav | `hugo.toml` |
+| The groups on the home page and their order | `data/groups.toml` |
+| An internship or job (Experience page) | `content/experience/<slug>.md` |
+| A project or experience | `content/projects/<slug>.md` or `content/projects/<slug>/index.md` |
 
-**Add a project**
+**Add a project or experience**
 
 ```sh
-hugo new projects/my-project.md
+hugo new projects/my-project.md            # an entry without images
+hugo new projects/my-project/index.md      # an entry with images, PDFs or videos next to it
 ```
 
-Fill in the front matter (`title`, `summary`, `tags`, optional `status` and `links`), write the page in markdown, and delete `draft: true`. The card on the home page appears automatically, newest `date` first (undated pages go last). Drafts are hidden from the build, and so are pages with a future `date`.
+Fill in the front matter (the template explains every field) and delete `draft: true`. The entry appears on the home page in its `group`, ordered by `weight`. An entry with a body gets its own page; an entry with `build: render: never` is a card only, linking to its first link.
+
+**Add a role to the Experience page:** create `content/experience/<slug>.md` with `title` (position), `org`, `period` and `date` (sorts newest first) in the front matter, and the details as a bullet list. It appears on the Experience page and in the home page summary.
+
+**Email addresses:** `params.emails` in `hugo.toml`. The first is shown in the intro; all are listed under Contact with their institution.
+
+**Add a group:** add a `[[groups]]` block to `data/groups.toml` and use its `id` in entries. The build warns about entries whose group is not listed.
+
+**Portrait:** `assets/img/portrait.jpg`, set by `portrait` in `content/_index.md`. Hugo crops it to 4:5 and resizes it at build, so any reasonably large photo works. (Don't put files in `resources/`: that is Hugo's cache and gets cleaned.)
+
+**Card images:** set `image:` to a file next to the entry. It is shown whole on a mounted plate, never cropped. Entries without an image are text entries, so adding one later needs no other change.
+
+**Colors:** all in `assets/css/tokens.css`, light and dark. The accent is fern green (`--accent`).
 
 **Markdown features**
 
 - Standard markdown: headings, lists, links, tables, footnotes, code blocks (plain, no highlighting).
-- `> a blockquote` renders as a handwritten margin note. Keep them short.
-- `![alt](path "caption")` renders an image with a handwritten caption. `path` can be a file next to the page (use a folder `content/projects/<slug>/index.md` and put images beside it) or a file under `static/`, written with a leading slash, e.g. `/img/photo.jpg`.
-- `{{< gallery >}} ...images... {{< /gallery >}}` lays images out in a grid.
-- `{{< projects >}}` inserts the project card grid.
-- Raw HTML is disabled. For links to other pages of this site, use `{{< relref "projects/slug" >}}` so they keep working under the GitHub Pages sub-path.
+- `![alt](file.png "caption")` on its own line becomes a figure with a caption. The file can sit next to the page or under `static/` with a leading slash.
+- Tables scroll sideways on small screens.
+- `{{< gallery >}} …images, one per line… {{< /gallery >}}` lays images out in a grid.
+- `{{< video src="file.mp4" caption="…" >}}` embeds a video; add `pixelated=true` for low-resolution footage.
+- Raw HTML is disabled. For links to other pages of this site, use `{{< relref "projects/slug" >}}`.
 
 ## Deploy
 
@@ -45,10 +60,33 @@ Keep the `HUGO_VERSION` in the workflow in step with the version you use locally
 ## Layout
 
 ```
-hugo.toml            site config, nav, footer links
-content/             the pages (markdown)
-layouts/             templates: baseof, home, projects/page, plus two shortcodes and an image hook
-assets/css/style.css the only stylesheet (minified and fingerprinted at build)
-static/              favicon and images, copied as is
-archetypes/          scaffold used by `hugo new projects/...`
+hugo.toml               site config: links, emails, nav
+data/groups.toml        home page groups
+content/                pages (markdown): projects/ holds the work entries, experience/ the roles
+layouts/
+  baseof.html           page skeleton
+  home.html             intro + groups
+  projects/page.html    an entry's own page
+  experience/section.html   the Experience page
+  404.html
+  _partials/
+    site/               head, header, footer
+    home/               intro, group, experience summary, build-time group check
+    work/               entry card, meta line
+    experience/         one role
+    links.html          pill link row
+    icon.html           inline SVG icons
+    func/resolve-url.html   turns any link into one that works under the Pages sub-path
+  _markup/              image and table render hooks
+  _shortcodes/          gallery, video
+assets/css/             one file per concern, bundled in the order listed in _partials/site/head.html
+static/                 fonts, CV, files copied as is (the site icon is generated from the portrait)
+archetypes/projects.md  template used by `hugo new projects/...`
 ```
+
+## Hugo 0.166 notes
+
+- Layout folders use the new names: `_partials/`, `_shortcodes/`, `_markup/`, `home.html`, `projects/page.html`.
+- `relURL` leaves `/path` untouched (only `/` and fragments get the base path). Strip the leading slash first, as `func/resolve-url.html` does.
+- Menu URLs are lowercased by Hugo, so nav links live in `params.href` on each menu entry.
+- `hugo.toml` has `baseURL = "/"` for local preview; CI passes the real one.
