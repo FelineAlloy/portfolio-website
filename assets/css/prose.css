@@ -1,0 +1,121 @@
+/* Markdown body of project pages: text, figures, video, gallery, tables, code. */
+
+.prose {
+  max-width: var(--measure);
+  padding-top: var(--space-6);
+  color: var(--ink-soft);
+}
+.prose > :first-child { margin-top: 0; }
+
+.prose p, .prose ul, .prose ol { margin: 0 0 var(--space-4); }
+.prose ul, .prose ol { padding-left: 1.25rem; }
+.prose li { margin-bottom: var(--space-2); }
+.prose li::marker { color: var(--muted); }
+.prose strong { color: var(--ink); font-weight: 600; }
+
+.prose h2 {
+  margin: var(--space-7) 0 var(--space-3);
+  color: var(--ink);
+  font-size: var(--text-lg);
+  letter-spacing: -0.015em;
+}
+.prose h3 {
+  margin: var(--space-6) 0 var(--space-2);
+  color: var(--ink);
+  font-size: var(--text-base);
+}
+
+.prose blockquote {
+  margin: var(--space-5) 0;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+.prose hr { margin: var(--space-7) 0; border: 0; border-top: 1px solid var(--line); }
+
+.prose code {
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background: var(--plate);
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+.prose pre {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-4);
+  overflow-x: auto;
+  border-radius: var(--radius);
+  background: var(--plate);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+.prose pre code { padding: 0; background: none; }
+
+/* Figures (render-image hook, video shortcode) */
+.figure { margin: var(--space-6) 0; }
+.figure img, .figure video {
+  border-radius: var(--radius);
+  background: var(--mount);
+}
+.figure figcaption, .figure__caption {
+  display: block;
+  margin-top: var(--space-2);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.45;
+}
+
+.figure--video video { width: min(100%, 26rem); }
+.figure--pixelated video { image-rendering: pixelated; }
+
+/* Gallery shortcode: inline figures in a wrapping grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  gap: var(--space-4);
+  margin: var(--space-6) 0;
+}
+.gallery p { display: contents; }
+.gallery .figure { margin: 0; }
+.gallery img { width: 100%; image-rendering: pixelated; }
+
+/* Tables (render-table hook) */
+.table-scroll {
+  margin: var(--space-5) 0;
+  overflow-x: auto;
+  /* A visible, themed scrollbar tells readers the table continues sideways. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+  padding-bottom: var(--space-2);
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.45;
+}
+.prose th {
+  padding: 0 var(--space-4) var(--space-2) 0;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+.prose td {
+  padding: var(--space-2) var(--space-4) var(--space-2) 0;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+.prose td strong { color: var(--accent); }
+
+/* Narrow screens: tighter cells and wrapping headers so typical results tables fit
+   without scrolling; wider ones still scroll inside .table-scroll. */
+@media (max-width: 40rem) {
+  .prose table { font-size: 0.8125rem; }
+  .prose th, .prose td { padding-right: var(--space-2); }
+  .prose th { white-space: normal; }
+  .prose th:last-child, .prose td:last-child { padding-right: 0; }
+}

@@ -1,0 +1,34 @@
+/* Project page header (and the 404 page). */
+
+.page { padding-top: var(--space-7); }
+
+.page__head {
+  max-width: var(--measure);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+.page__head > * + * { margin-top: var(--space-3); }
+
+.page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding-block: var(--space-1);
+  color: var(--muted);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.page__back:hover { color: var(--ink); }
+
+.page .page__title {
+  margin-top: var(--space-5);
+  font-size: var(--text-xl);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+.page__lede {
+  color: var(--ink-soft);
+  font-size: var(--text-md);
+  line-height: 1.55;
+}
+.page .page__links { margin-top: var(--space-5); }

@@ -1,0 +1,72 @@
+/* Design tokens. Every color, size and space used by the site is defined here.
+   The theme follows the visitor's OS setting. */
+
+:root {
+  color-scheme: light dark;
+
+  /* Neutrals: warm paper, near-black ink */
+  --paper: #F8F7F2;         /* page ground */
+  --plate: #EEECE4;         /* mounts behind figures and thumbnails */
+  --ink: #171715;           /* headings, primary text */
+  --ink-soft: #3B3A35;      /* body copy */
+  --muted: #625F57;         /* meta, captions, secondary text */
+  --line: #E2DFD5;          /* hairlines */
+  --line-strong: #C9C5B8;   /* button outlines, table header rule */
+
+  /* Accent: fern green, the only color. Links, results, focus, hover. */
+  --accent: #2C6E2F;
+  --accent-strong: #215223; /* link hover */
+  --accent-wash: #E2E8DD;   /* text selection */
+  --mount: #EAEDE4;         /* pale fern board behind figures */
+  --mount-hover: #D9E2D5;
+  --band: #E6EBE0;          /* the contact footer */
+
+  /* Type */
+  --font: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --text-sm: 0.875rem;      /* 14px: meta, captions */
+  --text-base: 1.0625rem;   /* 17px: body */
+  --text-md: 1.1875rem;     /* 19px: bio, ledes */
+  --text-lg: 1.375rem;      /* 22px: subheadings, footer title */
+  --text-section: clamp(1.5rem, 1.3rem + 0.8vw, 1.875rem); /* home section titles */
+  --text-xl: clamp(2rem, 1.6rem + 1.8vw, 2.75rem);    /* page titles */
+  --text-2xl: clamp(2.5rem, 1.9rem + 3vw, 4rem);      /* the name */
+
+  /* Space (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6rem;
+
+  /* Layout */
+  --shell: 72rem;           /* page width */
+  --measure: 42rem;         /* reading column */
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius: 6px;
+  --header-height: 3.75rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131312;
+    --plate: #1D1D1B;
+    --ink: #EEEDE7;
+    --ink-soft: #CFCDC5;
+    --muted: #A3A097;
+    --line: #2B2A27;
+    --line-strong: #45433E;
+    --accent: #86C987;
+    --accent-strong: #AAD9AB;
+    --accent-wash: #212920;
+    --mount: #1E201D;         /* near-neutral: only a hint of fern on dark */
+    --mount-hover: #222722;
+    --band: #1E201D;
+  }
+}

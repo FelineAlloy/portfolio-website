@@ -1,0 +1,60 @@
+/* Experience page (roles) and its summary on the home page. */
+
+.roles {
+  margin-top: var(--space-5);
+  list-style: none;
+}
+
+.role {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, var(--measure));
+  gap: var(--space-1) var(--space-6);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--line);
+}
+.role__period { padding-top: 0.2em; }
+.role__org { font-size: var(--text-lg); letter-spacing: -0.015em; }
+.role__position { margin-top: var(--space-1); color: var(--muted); }
+.role .role__details { padding-top: var(--space-4); }
+.role__details > :last-child { margin-bottom: 0; }
+
+@media (max-width: 40rem) {
+  .role { grid-template-columns: 1fr; }
+}
+
+/* Home page summary */
+.experience-summary { margin-top: var(--space-8); }
+.experience-summary__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.experience-summary__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+.experience-summary__more:hover { color: var(--accent); }
+
+.experience-summary__list {
+  margin-top: var(--space-5);
+  list-style: none;
+}
+.experience-summary__list a {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-1) var(--space-5);
+  padding-block: var(--space-3);
+  border-top: 1px solid var(--line-strong);
+  color: var(--ink);
+  text-decoration: none;
+}
+.experience-summary__list strong { font-weight: 600; }
+.experience-summary__list a:hover .experience-summary__role { color: var(--accent); }

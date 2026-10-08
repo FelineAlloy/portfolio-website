@@ -1,0 +1,130 @@
+/* Home page work groups and entries. */
+
+/* Sections are separated by space and a large title, without rules. */
+.group + .group { margin-top: var(--space-8); }
+
+.group__title {
+  font-size: var(--text-section);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.group__entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: var(--space-7) var(--space-5);
+  margin-top: var(--space-6);
+  list-style: none;
+}
+
+/* Entry: a hairline, an optional mounted figure, then title, meta, summary, result
+   and evidence links. The shared hairline keeps rows aligned when figures and text mix. */
+.entry {
+  position: relative;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--line-strong);
+}
+
+.entry__media {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  margin-bottom: var(--space-4);
+  padding: 7%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--mount);
+  transition: background-color 220ms var(--ease-out);
+}
+.entry__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+  transition: transform 320ms var(--ease-out);
+}
+
+.entry__title {
+  font-size: var(--text-base);
+  line-height: 1.35;
+}
+.entry__title a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.entry__title .icon { margin-left: 0.25em; color: var(--muted); }
+
+/* The title link covers the whole entry, so the entry is one click target
+   while its accessible name stays the title alone. */
+.entry__title a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+}
+.entry__title a:focus-visible { outline: none; }
+.entry__title a:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.entry .meta { margin-top: var(--space-1); }
+
+.entry__summary {
+  margin-top: var(--space-3);
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+.entry .result { margin-top: var(--space-3); }
+
+/* Evidence links sit above the whole-entry link so each stays clickable. */
+.entry__evidence {
+  position: relative;
+  z-index: 1;
+  margin-top: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-sm);
+}
+.entry__evidence a { color: var(--muted); }
+.entry__evidence a:hover { color: var(--accent); }
+
+.entry--link:hover .entry__media { background: var(--mount-hover); }
+.entry--link:hover .entry__media img { transform: scale(1.025); }
+.entry--link:hover .entry__title a { color: var(--accent); }
+
+/* Shared by entries and project pages */
+.meta {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+.result {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+/* Narrow screens: one column; figure entries become rows with a square thumbnail. */
+@media (max-width: 40rem) {
+  .group__entries { grid-template-columns: 1fr; gap: var(--space-6); }
+  .entry--figure {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+    align-items: start;
+  }
+  .entry--figure > * { grid-column: 2; }
+  .entry--figure .entry__media {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    aspect-ratio: 1;
+    margin-bottom: 0;
+    padding: 10%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entry__media, .entry__media img { transition: none; }
+  .entry--link:hover .entry__media img { transform: none; }
+}

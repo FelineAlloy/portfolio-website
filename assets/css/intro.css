@@ -1,0 +1,59 @@
+/* Home page intro: name, affiliation, bio, links, optional portrait. */
+
+.intro {
+  display: grid;
+  gap: var(--space-7);
+  align-items: center;
+  padding-block: clamp(3rem, 2rem + 6vw, 7rem) clamp(3rem, 2rem + 4vw, 5.5rem);
+}
+@media (min-width: 52rem) {
+  .intro--portrait { grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-8); }
+}
+
+.intro__name {
+  font-size: var(--text-2xl);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+.intro__affiliation {
+  margin-top: var(--space-4);
+  color: var(--muted);
+  font-size: var(--text-md);
+  line-height: 1.45;
+}
+.intro__bio {
+  max-width: 60ch;
+  margin-top: var(--space-6);
+  color: var(--ink-soft);
+  font-size: var(--text-md);
+  line-height: 1.6;
+}
+.intro__bio p + p { margin-top: var(--space-4); }
+.intro__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+.intro__email {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+
+/* Portrait: a 4:5 photo beside the intro (above the name on narrow screens). */
+.intro__portrait { justify-self: end; }
+.intro__portrait img {
+  width: 18rem;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: var(--plate);
+}
+
+@media (max-width: 51.99rem) {
+  .intro--portrait { gap: var(--space-5); }
+  .intro__portrait { order: -1; justify-self: start; }
+  .intro__portrait img { width: 7.5rem; }
+}

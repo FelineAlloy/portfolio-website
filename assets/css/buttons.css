@@ -1,0 +1,47 @@
+/* Pill links (the links.html partial). */
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  list-style: none;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  min-height: 2.5rem;
+  padding: var(--space-2) 1.125rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: border-color 160ms var(--ease-out), background-color 160ms var(--ease-out), color 160ms var(--ease-out);
+}
+.button:hover { border-color: var(--ink); color: var(--ink); }
+
+/* The primary action is the one filled button, in the accent. */
+.button--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+}
+.button--primary:hover {
+  border-color: var(--accent-strong);
+  background: var(--accent-strong);
+  color: var(--paper);
+}
+
+.button__note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.button--primary .button__note { color: inherit; opacity: 0.7; }
+.button .icon { color: var(--muted); }
+.button--primary .icon { color: inherit; }
