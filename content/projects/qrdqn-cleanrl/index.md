@@ -1,11 +1,19 @@
 ---
 title: "QR-DQN for CleanRL"
 summary: "Single-file Quantile Regression DQN implementations for CleanRL, covering classic control and Atari."
-date: 2026
+date: 2026-01-01 # TODO: exact month
+group: research
+weight: 1
+kind: "Research project"
+image: pong_distrib.png
 links:
   - name: Code
     url: https://github.com/FelineAlloy/cleanrl/tree/add-qrdqn
-  - name: CleanRL
+  - name: Report
+    url: QRDQN_Report.pdf
+  - name: Defense slides
+    url: QRDQN_Presentation.pdf
+  - name: CleanRL library
     url: https://github.com/vwxyzjn/cleanrl
 ---
 [CleanRL](https://github.com/vwxyzjn/cleanrl) provides single-file, research-friendly implementations of deep RL algorithms, but it has no QR-DQN. This project adds one, following the library's conventions of one self-contained file per algorithm variant.
@@ -16,9 +24,9 @@ Work was done as part of a semester project under the supervision of [Dr. Simo A
 
 Wrote a [report](QRDQN_Report.pdf) and held a [defense](QRDQN_Presentation.pdf) of my work.
 
-{{< video "rl-video-episode-8.mp4" "Our QRDQN implementation playing Q*Bert" >}}
+{{< video src="rl-video-episode-8.mp4" caption="Our QR-DQN implementation playing Q*Bert" pixelated=true >}}
 
-<!-- ![[Pong Distribution]](pong_distrib.png "Example of generated cumulative distribution functions.") -->
+![Return distributions learned on Pong](pong_distrib.png "Example of generated cumulative distribution functions.")
 
 ## Results
 

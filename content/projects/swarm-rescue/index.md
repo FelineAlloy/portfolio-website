@@ -1,7 +1,12 @@
 ---
 title: "Swarm Rescue"
 summary: "A drone-swarm rescue strategy for the Swarm-Rescue simulation competition."
-date: 2024
+date: 2025-01-01 # TODO: exact month
+group: research
+weight: 2
+kind: "Competition"
+period: "2024 – 2025"
+result: "Final round, one of 10 teams"
 links:
   - name: Code
     url: https://github.com/FelineAlloy/swarm-rescue

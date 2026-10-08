@@ -2,8 +2,11 @@
 title: "IP Paris Formula Student Racing"
 summary: "Safety-critical low-voltage electronics for IP Paris's Formula Student car."
 date: 2024-09-01 # TODO: replace with the date that fits
-status: "2024 – present"
-tags: ["Electronics", "Embedded Systems", "Automotive"]
+group: student-orgs
+weight: 1
+kind: "Electronics team"
+period: "2024 – present"
+image: bspd-pcb.png
 ---
 IP Paris Racing Team competes in Formula Student, an international engineering competition where student teams design, build and race a formula-style car. I'm on the Electronics team, working on the car's safety-critical low-voltage systems.
 

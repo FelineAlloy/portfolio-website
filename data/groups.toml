@@ -1,0 +1,14 @@
+# Groups shown on the home page, in this order.
+# Every entry in content/projects/ names one of these ids in its `group` field.
+
+[[groups]]
+  id = "research"
+  title = "Research and machine learning"
+
+[[groups]]
+  id = "space"
+  title = "Space and science outreach"
+
+[[groups]]
+  id = "student-orgs"
+  title = "Student organisations"
