@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-08T00:00:00Z",
+  "title": "Design System: Luxin Matasaru",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "#F8F7F2",
+        "tonalRamp": [
+          "#171715",
+          "#3B3A35",
+          "#625F57",
+          "#8C897F",
+          "#C9C5B8",
+          "#E2DFD5",
+          "#EEECE4",
+          "#F8F7F2"
+        ]
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "Mount Plate",
+        "canonical": "#EEECE4"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#171715"
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#3B3A35"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Warm Grey",
+        "canonical": "#625F57"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#E2DFD5"
+      },
+      "line-strong": {
+        "role": "neutral",
+        "displayName": "Strong Hairline",
+        "canonical": "#C9C5B8"
+      },
+      "paper-dark": {
+        "role": "neutral",
+        "displayName": "Night Paper",
+        "canonical": "#131312",
+        "tonalRamp": [
+          "#131312",
+          "#1D1D1B",
+          "#2B2A27",
+          "#45433E",
+          "#A3A097",
+          "#CFCDC5",
+          "#E2E1DB",
+          "#EEEDE7"
+        ]
+      },
+      "fern": {
+        "role": "primary",
+        "displayName": "Fern Green",
+        "canonical": "#2C6E2F",
+        "tonalRamp": [
+          "#0F2610",
+          "#215223",
+          "#2C6E2F",
+          "#3F8A42",
+          "#5FA761",
+          "#86C987",
+          "#BEE0BE",
+          "#E2E8DD"
+        ]
+      },
+      "mount": {
+        "role": "neutral",
+        "displayName": "Fern Mount",
+        "canonical": "#EAEDE4",
+        "dark": "#1E201D"
+      },
+      "band": {
+        "role": "neutral",
+        "displayName": "Fern Band",
+        "canonical": "#E6EBE0",
+        "dark": "#1E201D"
+      },
+      "mount-hover": {
+        "role": "neutral",
+        "displayName": "Fern Mount (hover)",
+        "canonical": "#D9E2D5",
+        "dark": "#222722"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the home intro only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Project page titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Work group titles, prose h2, footer heading."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Bio, affiliation, project ledes, footer email."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose in a 42rem column; entry titles at 600."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Meta lines (tabular numerals), captions, evidence links, results, table headers."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Inline code and code blocks only."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "All state transitions."
+      },
+      {
+        "name": "duration-state",
+        "value": "160ms",
+        "purpose": "Link and pill color, border and background changes."
+      },
+      {
+        "name": "duration-plate",
+        "value": "220ms",
+        "purpose": "Figure plate tint on entry hover."
+      },
+      {
+        "name": "duration-figure",
+        "value": "320ms",
+        "purpose": "Figure scale (1.025) on entry hover; removed under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "narrow",
+        "value": "40rem",
+        "purpose": "max-width: one-column work grid, figure entries become thumbnail rows, tables tighten."
+      },
+      {
+        "name": "intro-split",
+        "value": "52rem",
+        "purpose": "min-width: intro splits 8/4 when a portrait exists."
+      }
+    ],
+    "browserSurfaces": {
+      "selection": "background accent-wash, text ink",
+      "focus": "2px solid accent outline, 3px offset, 2px radius",
+      "linkUnderline": "1px, currentColor at 45%, offset 0.2em",
+      "numerals": "tabular-nums on meta lines and tables",
+      "scrollbar": "thin, line-strong on transparent (table scroll regions)",
+      "colorScheme": "light dark, follows prefers-color-scheme"
+    }
+  },
+  "components": [
+    {
+      "name": "Pill Link",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Outlined pill for actions such as Email or GitHub; external links carry an arrow icon.",
+      "html": "<a class=\"ds-button\" href=\"#\">GitHub<svg class=\"ds-icon\" viewBox=\"0 0 16 16\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 11 11 5M6 5h5v5\"/></svg></a>",
+      "css": ".ds-button { display: inline-flex; align-items: center; gap: 0.4em; min-height: 2.5rem; padding: 0.5rem 1.125rem; border: 1px solid var(--line-strong, #C9C5B8); border-radius: 999px; color: var(--ink, #171715); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; line-height: 1.2; text-decoration: none; transition: border-color 160ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms cubic-bezier(0.22, 1, 0.36, 1), color 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-button:hover { border-color: var(--ink, #171715); } .ds-button:focus-visible { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 3px; } .ds-icon { width: 1em; height: 1em; color: var(--muted, #625F57); }"
+    },
+    {
+      "name": "Primary Pill Link",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ink-filled pill for the single most important action (CV); PDF links carry a small file-type note.",
+      "html": "<a class=\"ds-button-primary\" href=\"#\">CV<span class=\"ds-note\">PDF</span></a>",
+      "css": ".ds-button-primary { display: inline-flex; align-items: center; gap: 0.4em; min-height: 2.5rem; padding: 0.5rem 1.125rem; border: 1px solid var(--ink, #171715); border-radius: 999px; background: var(--ink, #171715); color: var(--paper, #F8F7F2); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-weight: 500; line-height: 1.2; text-decoration: none; transition: border-color 160ms cubic-bezier(0.22, 1, 0.36, 1), background-color 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-button-primary:hover { border-color: var(--accent, #2C6E2F); background: var(--accent, #2C6E2F); } .ds-button-primary:focus-visible { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 3px; } .ds-note { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.02em; opacity: 0.7; }"
+    },
+    {
+      "name": "Site Header",
+      "kind": "nav",
+      "refersTo": "site-header",
+      "description": "Sticky thin header: name left, muted nav right, hairline below.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-header-name\" href=\"#\">Luxin Matasaru</a><ul class=\"ds-nav\"><li><a href=\"#\">Work</a></li><li><a href=\"#\">CV</a></li><li><a href=\"#\">Contact</a></li></ul></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 3.75rem; padding-inline: 1.5rem; background: var(--paper, #F8F7F2); border-bottom: 1px solid var(--line, #E2DFD5); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; } .ds-header-name { color: var(--ink, #171715); font-weight: 600; letter-spacing: -0.01em; text-decoration: none; } .ds-nav { display: flex; gap: 0.25rem 1.5rem; margin: 0; padding: 0; list-style: none; } .ds-nav a { display: inline-block; padding-block: 0.5rem; color: var(--muted, #625F57); font-size: 0.9375rem; text-decoration: none; transition: color 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-nav a:hover { color: var(--ink, #171715); } .ds-nav a:focus-visible { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Work Entry (figure)",
+      "kind": "card",
+      "refersTo": "entry-media",
+      "description": "Catalogue entry with a mounted figure: hairline top, 3:2 plate with contained image, title, tabular meta, summary, accent result, evidence links. The whole entry is one click target.",
+      "html": "<article class=\"ds-entry\"><div class=\"ds-entry-media\"><div class=\"ds-entry-img\"></div></div><h3 class=\"ds-entry-title\"><a href=\"#\">QR-DQN for CleanRL</a></h3><p class=\"ds-meta\">2026 · Research project</p><p class=\"ds-summary\">Single-file Quantile Regression DQN implementations for CleanRL.</p><p class=\"ds-result\">Final round, one of 10 teams</p><p class=\"ds-evidence\"><a href=\"#\">Code</a> · <a href=\"#\">Report</a></p></article>",
+      "css": ".ds-entry { position: relative; max-width: 16rem; padding-top: 1rem; border-top: 1px solid var(--line-strong, #C9C5B8); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; } .ds-entry-media { display: grid; place-items: center; aspect-ratio: 3 / 2; margin-bottom: 1rem; padding: 7%; border-radius: 6px; background: var(--plate, #EEECE4); transition: background-color 220ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-entry-img { width: 100%; height: 100%; border-radius: 2px; background: var(--ink-soft, #3B3A35); transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-entry-title { margin: 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.35; } .ds-entry-title a { color: var(--ink, #171715); text-decoration: none; } .ds-entry-title a::after { content: \"\"; position: absolute; inset: 0; border-radius: 6px; } .ds-entry-title a:focus-visible { outline: none; } .ds-entry-title a:focus-visible::after { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 6px; } .ds-meta { margin: 0.25rem 0 0; color: var(--muted, #625F57); font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-summary { margin: 0.75rem 0 0; color: var(--ink-soft, #3B3A35); font-size: 0.9375rem; line-height: 1.55; } .ds-result { margin: 0.75rem 0 0; color: var(--accent, #2C6E2F); font-size: 0.875rem; font-weight: 600; } .ds-evidence { position: relative; z-index: 1; margin: 0.75rem 0 0; color: var(--muted, #625F57); font-size: 0.875rem; } .ds-evidence a { color: var(--muted, #625F57); text-underline-offset: 0.2em; } .ds-evidence a:hover { color: var(--accent, #2C6E2F); } .ds-entry:hover .ds-entry-media { background: var(--accent-wash, #E2E8DD); } .ds-entry:hover .ds-entry-img { transform: scale(1.025); } .ds-entry:hover .ds-entry-title a { color: var(--accent, #2C6E2F); }"
+    },
+    {
+      "name": "Work Entry (text)",
+      "kind": "card",
+      "refersTo": "entry-text",
+      "description": "Catalogue entry without a figure: same hairline, title, meta, summary and result, no plate.",
+      "html": "<article class=\"ds-tentry\"><h3 class=\"ds-tentry-title\"><a href=\"#\">NSS Space Settlement Contest</a></h3><p class=\"ds-tmeta\">2024 · Competition</p><p class=\"ds-tsummary\">A self-sufficient space colony, detailed in a 50-page design report.</p><p class=\"ds-tresult\">Grand Prize</p></article>",
+      "css": ".ds-tentry { position: relative; max-width: 16rem; padding-top: 1rem; border-top: 1px solid var(--line-strong, #C9C5B8); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; } .ds-tentry-title { margin: 0; font-size: 1.0625rem; font-weight: 600; line-height: 1.35; } .ds-tentry-title a { color: var(--ink, #171715); text-decoration: none; transition: color 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-tentry-title a::after { content: \"\"; position: absolute; inset: 0; } .ds-tentry:hover .ds-tentry-title a { color: var(--accent, #2C6E2F); } .ds-tentry-title a:focus-visible { outline: none; } .ds-tentry-title a:focus-visible::after { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 6px; border-radius: 6px; } .ds-tmeta { margin: 0.25rem 0 0; color: var(--muted, #625F57); font-size: 0.875rem; font-variant-numeric: tabular-nums; } .ds-tsummary { margin: 0.75rem 0 0; color: var(--ink-soft, #3B3A35); font-size: 0.9375rem; line-height: 1.55; } .ds-tresult { margin: 0.75rem 0 0; color: var(--accent, #2C6E2F); font-size: 0.875rem; font-weight: 600; }"
+    },
+    {
+      "name": "Inline Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Accent link with a soft offset underline that strengthens on hover.",
+      "html": "<p class=\"ds-p\">Write to <a class=\"ds-link\" href=\"#\">luxin.matasaru@polytechnique.edu</a>.</p>",
+      "css": ".ds-p { color: var(--ink-soft, #3B3A35); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 1.0625rem; line-height: 1.6; } .ds-link { color: var(--accent, #2C6E2F); text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); text-underline-offset: 0.2em; transition: color 160ms cubic-bezier(0.22, 1, 0.36, 1), text-decoration-color 160ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-link:hover { color: var(--accent-strong, #215223); text-decoration-color: currentColor; } .ds-link:focus-visible { outline: 2px solid var(--accent, #2C6E2F); outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Results Table",
+      "kind": "custom",
+      "refersTo": "table",
+      "description": "Prose table in a scroll region: muted headers on a strong rule, hairline rows, tabular numerals, bold cells in accent.",
+      "html": "<div class=\"ds-table-scroll\"><table class=\"ds-table\"><thead><tr><th>Env</th><th>QR-DQN</th><th>DQN</th></tr></thead><tbody><tr><td>CartPole</td><td><strong>500.0</strong></td><td>487.2</td></tr><tr><td>Acrobot</td><td>-81.4</td><td><strong>-79.9</strong></td></tr></tbody></table></div>",
+      "css": ".ds-table-scroll { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--line-strong, #C9C5B8) transparent; padding-bottom: 0.5rem; } .ds-table { width: 100%; border-collapse: collapse; color: var(--ink-soft, #3B3A35); font-family: \"Hanken Grotesk\", ui-sans-serif, system-ui, sans-serif; font-size: 0.9375rem; font-variant-numeric: tabular-nums; line-height: 1.45; } .ds-table th { padding: 0 1rem 0.5rem 0; border-bottom: 1px solid var(--line-strong, #C9C5B8); color: var(--muted, #625F57); font-size: 0.875rem; font-weight: 600; text-align: left; white-space: nowrap; } .ds-table td { padding: 0.5rem 1rem 0.5rem 0; border-bottom: 1px solid var(--line, #E2DFD5); white-space: nowrap; } .ds-table td strong { color: var(--accent, #2C6E2F); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Researcher's Catalogue",
+    "overview": "The site is a catalogue, not a landing page. A visitor learns who Luxin is in one glance (name, affiliation, a short bio, the CV / Email / GitHub pills) and then scans the work grouped by field: years, outcomes and evidence links on every entry, figures mounted on pale fern board where a real figure exists, plain text entries where it does not. The register is warm but academically professional: warm paper, near-black ink, one deep accent, one sans-serif throughout.\n\nDensity is calm and list-like. Structure comes from hairline rules and whitespace, never from boxes, cards or shadows. Ornament is absent on purpose: no like or view counts, no badges, no counters, no handwritten type. Content is never invented; a gap stays visible as `TODO` rather than being filled with plausible copy.\n\nThe theme follows the visitor's OS setting (`prefers-color-scheme`); dark backgrounds stay near-neutral. The single accent is fern green, a true leaf green chosen by the owner over bottle green, ink blue and viridian.",
+    "keyCharacteristics": [
+      "Warm paper ground, near-black ink, warm grey secondary text.",
+      "One accent, fern green, reserved for links, results, focus and hover.",
+      "Hanken Grotesk, self-hosted, regular / medium / semibold; no second family except a system mono for code.",
+      "Hairline-topped entries in an auto-fill grid; figures contained (never cropped) on plates.",
+      "Pill-shaped actions; flat surfaces.",
+      "Every browser surface themed: selection, focus ring, link underline offset, tabular numerals, table scrollbar."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Fern green is the only chromatic color. Everything else is paper, ink or a fade of ink; images bring their own color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Accent Means Something Rule",
+        "body": "Accent marks only things that act or that matter: links, results (prizes, outcomes), focus, hover. Headings, rules and plates stay neutral.",
+        "section": "colors"
+      },
+      {
+        "name": "The Swap Only The Accent Rule",
+        "body": "Switching palettes changes `--accent`, `--accent-strong` and `--accent-wash` and nothing else; neutrals, type and layout are shared.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Hanken Grotesk everywhere: headings, nav, labels, body. No handwritten, serif or display face; mono is for code alone.",
+        "section": "typography"
+      },
+      {
+        "name": "The Balanced Heading Rule",
+        "body": "Headings use `text-wrap: balance`, paragraphs `text-wrap: pretty`.",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "**Do** take every color, size and space from the tokens in `assets/css/tokens.css`.",
+      "**Do** change the accent only through the `--accent*` tokens, light and dark together.",
+      "**Do** let the theme follow `prefers-color-scheme` and keep dark grounds near-neutral.",
+      "**Do** mount real figures on the plate (3:2, 7% inset, contained) and leave entries without a figure as text entries.",
+      "**Do** give every entry its evidence links and set outcomes as accent results.",
+      "**Do** use hairlines and whitespace to separate content.",
+      "**Do** keep icons as inline 1em stroke SVGs in the current text color.",
+      "**Do** honor `prefers-reduced-motion` for any transition or scroll behavior."
+    ],
+    "donts": [
+      "**Don't** add like or view counts, badges, counters or similar gimmicks.",
+      "**Don't** use a handwritten, serif or second display font.",
+      "**Don't** crop figures to fill a frame or invent placeholder imagery.",
+      "**Don't** show both accent palettes on one page.",
+      "**Don't** put the accent on headings, rules or plates.",
+      "**Don't** invent content; unverified facts are written as `TODO`."
+    ]
+  }
+}
