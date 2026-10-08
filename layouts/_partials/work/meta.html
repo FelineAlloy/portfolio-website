@@ -1,0 +1,8 @@
+{{- /* The "period · kind" line. Context: an entry page. The period defaults to the year of `date`. */ -}}
+{{- $period := .Params.period | default (cond .Date.IsZero "" (string .Date.Year)) }}
+{{- $parts := slice }}
+{{- with $period }}{{ $parts = $parts | append . }}{{ end }}
+{{- with .Params.kind }}{{ $parts = $parts | append . }}{{ end }}
+{{- with $parts }}
+<p class="meta">{{ delimit . " · " }}</p>
+{{- end -}}

@@ -1,24 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ site.Language.Locale | default "en" }}">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-  <meta name="description" content="{{ .Params.summary | default site.Params.description }}">
-  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:wght@400..700&display=swap">
-  {{ $css := resources.Get "css/style.css" | resources.Minify | resources.Fingerprint -}}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+  {{- partial "site/head.html" . }}
 </head>
 <body>
-  <div class="wrap">
-    {{ partial "header.html" . }}
-    <main>
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ partial "footer.html" . }}
-  </div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {{ partial "site/header.html" . }}
+  <main id="main">
+    {{- block "main" . }}{{ end }}
+  </main>
+  {{ partial "site/footer.html" . }}
 </body>
 </html>

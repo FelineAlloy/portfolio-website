@@ -1,0 +1,18 @@
+{{- /*
+  A row of pill links. Context: dict
+    "links"  list of {name, url, primary?}
+    "page"   the page the links belong to (resolves files next to it), optional
+    "class"  extra class on the list, optional
+*/ -}}
+{{- $page := .page -}}
+<ul class="links {{ .class }}">
+  {{- range .links }}
+    {{- $href := partial "func/resolve-url.html" (dict "url" .url "page" $page) }}
+    {{- $external := strings.Contains $href "://" }}
+    <li><a class="button{{ if .primary }} button--primary{{ end }}" href="{{ $href }}"{{ if $external }} rel="noopener"{{ end }}>
+      {{- .name }}
+      {{- if hasSuffix (lower $href) ".pdf" }}<span class="button__note">PDF</span>{{ end }}
+      {{- if $external }}{{ partial "icon.html" "arrow-up-right" }}{{ end -}}
+    </a></li>
+  {{- end }}
+</ul>

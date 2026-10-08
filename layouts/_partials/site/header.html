@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="site-header__name" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    <nav aria-label="Main">
+      <ul class="site-nav">
+        {{- range site.Menus.main }}
+        <li><a href="{{ partial "func/resolve-url.html" (dict "url" .Params.href) }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </nav>
+  </div>
+</header>

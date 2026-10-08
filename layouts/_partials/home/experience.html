@@ -1,0 +1,24 @@
+{{- /* Compact list of roles on the home page, linking to the experience page. */ -}}
+{{- with site.GetPage "/experience" }}
+{{- $page := . }}
+{{- with .Pages }}
+<section class="shell" aria-labelledby="experience-title">
+  <div class="experience-summary">
+  <div class="experience-summary__head">
+    <h2 class="group__title" id="experience-title">Experience</h2>
+    <a class="experience-summary__more" href="{{ $page.RelPermalink }}">All details{{ partial "icon.html" "arrow-right" }}</a>
+  </div>
+  <ol class="experience-summary__list">
+    {{- range .ByDate.Reverse }}
+    <li>
+      <a href="{{ $page.RelPermalink }}#{{ .File.ContentBaseName }}">
+        <span class="experience-summary__role">{{ .Title }}{{ with .Params.org }}, <strong>{{ . }}</strong>{{ end }}</span>
+        <span class="meta">{{ .Params.period | default .Date.Year }}</span>
+      </a>
+    </li>
+    {{- end }}
+  </ol>
+  </div>
+</section>
+{{- end }}
+{{- end -}}

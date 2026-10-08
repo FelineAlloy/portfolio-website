@@ -1,5 +1,16 @@
-{{- /* {{< video "file.mp4" "caption" >}}: file may be a page-bundle resource or a /path from static/. */ -}}
-{{- $src := .Get 0 -}}
-{{- $res := .Page.Resources.Get $src -}}
-{{- if $res }}{{ $src = $res.RelPermalink }}{{ else if hasPrefix $src "/" }}{{ $src = $src | strings.TrimPrefix "/" | relURL }}{{ end -}}
-<span class="fig fig-video"><video src="{{ $src }}" controls playsinline loop muted></video>{{ with .Get 1 }}<span class="cap hand">{{ . }}</span>{{ end }}</span>
+{{- /*
+  {{< video "file.mp4" "caption" >}}  or  {{< video src="file.mp4" caption="…" pixelated=true >}}
+  The file may sit next to the page or under static/ (leading slash).
+  pixelated=true keeps low-resolution footage (e.g. Atari frames) sharp when scaled up.
+*/ -}}
+{{- $src := "" }}{{ $caption := "" }}
+{{- if .IsNamedParams }}
+  {{- $src = .Get "src" }}{{ $caption = .Get "caption" }}
+{{- else }}
+  {{- $src = .Get 0 }}{{ $caption = .Get 1 }}
+{{- end }}
+{{- $url := partial "func/resolve-url.html" (dict "url" $src "page" .Page) }}
+<figure class="figure figure--video{{ if and .IsNamedParams (.Get "pixelated") }} figure--pixelated{{ end }}">
+  <video src="{{ $url }}" controls playsinline loop muted preload="metadata"></video>
+  {{- with $caption }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

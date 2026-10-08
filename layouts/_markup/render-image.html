@@ -1,5 +1,23 @@
-{{- /* ![alt](src "caption"): src may be a page-bundle file, a /path from static/, or a full URL. */ -}}
-{{- $src := .Destination -}}
-{{- $res := .PageInner.Resources.Get $src -}}
-{{- if $res }}{{ $src = $res.RelPermalink }}{{ else if hasPrefix $src "/" }}{{ $src = $src | strings.TrimPrefix "/" | relURL }}{{ end -}}
-<span class="fig"><img src="{{ $src }}" alt="{{ .Text }}" loading="lazy">{{ with .Title }}<span class="cap hand">{{ . }}</span>{{ end }}</span>
+{{- /*
+  Markdown images. A standalone image becomes a <figure>; images sharing a paragraph
+  (e.g. inside the gallery shortcode) stay inline. The optional "title" is the caption.
+*/ -}}
+{{- $src := partial "func/resolve-url.html" (dict "url" .Destination "page" .Page) }}
+{{- $size := "" }}
+{{- with .Page.Resources.Get .Destination }}
+  {{- if and (eq .MediaType.MainType "image") (ne .MediaType.SubType "svg") }}
+    {{- $size = printf ` width="%d" height="%d"` .Width .Height }}
+  {{- end }}
+{{- end }}
+{{- /* A caption identical to the alt text would be read out twice by screen readers. */}}
+{{- $hideCaption := eq .Title .PlainText }}
+{{- if .IsBlock -}}
+<figure class="figure">
+  <img src="{{ $src }}" alt="{{ .PlainText }}"{{ $size | safeHTMLAttr }} loading="lazy" decoding="async">
+  {{- with .Title }}<figcaption{{ if $hideCaption }} aria-hidden="true"{{ end }}>{{ . }}</figcaption>{{ end }}
+</figure>
+{{- else -}}
+<span class="figure figure--inline"><img src="{{ $src }}" alt="{{ .PlainText }}"{{ $size | safeHTMLAttr }} loading="lazy" decoding="async">
+  {{- with .Title }}<span class="figure__caption"{{ if $hideCaption }} aria-hidden="true"{{ end }}>{{ . }}</span>{{ end -}}
+</span>
+{{- end -}}

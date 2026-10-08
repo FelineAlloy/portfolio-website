@@ -1,0 +1,17 @@
+{{- /* Contact: every address from params.emails with its institution, then the link buttons. */ -}}
+<footer class="site-footer" id="contact">
+  <div class="shell site-footer__inner">
+    <div class="site-footer__contact">
+      <h2 class="site-footer__title">Contact</h2>
+      {{- with site.Params.emails }}
+      <ul class="site-footer__emails">
+        {{- range . }}
+        <li><a class="site-footer__email" href="mailto:{{ .address }}">{{ .address }}</a>{{ with .label }}<span class="meta">{{ . }}</span>{{ end }}</li>
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- partial "links.html" (dict "links" site.Params.links) }}
+    </div>
+    <p class="site-footer__fine">© {{ now.Year }} {{ site.Title }}</p>
+  </div>
+</footer>

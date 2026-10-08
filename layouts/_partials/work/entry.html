@@ -1,0 +1,38 @@
+{{- /*
+  One work entry on the home page. Context: an entry page.
+  The title links to the entry's own page when it has one (no `build.render: never`),
+  otherwise to its first link, otherwise nowhere. Entries with an `image` get a
+  mounted figure; the rest are text entries.
+*/ -}}
+{{- $href := .RelPermalink }}
+{{- if and (not $href) .Params.links }}
+  {{- $href = partial "func/resolve-url.html" (dict "url" (index .Params.links 0).url "page" .) }}
+{{- end }}
+{{- $external := strings.Contains $href "://" }}
+{{- $image := "" }}
+{{- with .Params.image }}{{ $image = $.Resources.Get . }}{{ end }}
+{{- if and .Params.image (not $image) }}{{ warnf "%s: image %q not found next to the page" .File.Path .Params.image }}{{ end }}
+<article class="entry{{ if $href }} entry--link{{ end }}{{ if $image }} entry--figure{{ end }}">
+  {{- with $image }}
+  {{- $thumb := cond (gt .Width 960) (.Resize "960x") . }}
+  <div class="entry__media">
+    <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="" loading="lazy" decoding="async">
+  </div>
+  {{- end }}
+  <h3 class="entry__title">
+    {{- if $href }}
+    <a href="{{ $href }}"{{ if $external }} rel="noopener"{{ end }}>{{ .Title }}{{ if $external }}{{ partial "icon.html" "arrow-up-right" }}{{ end }}</a>
+    {{- else }}{{ .Title }}{{ end -}}
+  </h3>
+  {{- partial "work/meta.html" . }}
+  {{- with .Params.summary }}<p class="entry__summary">{{ . }}</p>{{ end }}
+  {{- with .Params.result }}<p class="result">{{ . }}</p>{{ end }}
+  {{- with .Params.links }}
+  <p class="entry__evidence">
+    {{- range $i, $link := . }}{{ if $i }}<span aria-hidden="true"> · </span>{{ end }}
+    {{- $url := partial "func/resolve-url.html" (dict "url" $link.url "page" $) }}
+    <a href="{{ $url }}"{{ if strings.Contains $url "://" }} rel="noopener"{{ end }}>{{ $link.name }}</a>
+    {{- end }}
+  </p>
+  {{- end }}
+</article>

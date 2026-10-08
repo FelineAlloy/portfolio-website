@@ -1,0 +1,22 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{{- $title := cond .IsHome site.Title (printf "%s · %s" .Title site.Title) }}
+{{- $description := .Params.summary | default site.Params.description | plainify }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="{{ cond .IsHome "website" "article" }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="theme-color" content="#F8F7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
+{{- partial "site/icons.html" . }}
+<link rel="preload" href="{{ "fonts/hanken-grotesk-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{- /* Stylesheets in assets/css/, bundled in this order into one minified, fingerprinted file. */}}
+{{- $sheets := slice "fonts" "tokens" "base" "layout" "buttons" "intro" "work" "page" "prose" "experience" }}
+{{- $bundle := slice }}
+{{- range $sheets }}
+  {{- $bundle = $bundle | append (resources.Get (printf "css/%s.css" .)) }}
+{{- end }}
+{{- $css := $bundle | resources.Concat "css/site.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

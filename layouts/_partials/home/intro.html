@@ -1,0 +1,29 @@
+{{- /* Name, affiliation, bio and portrait from content/_index.md; links and email from hugo.toml. */ -}}
+{{- $portrait := "" }}
+{{- with .Params.portrait }}
+  {{- $portrait = resources.Get . }}
+  {{- if not $portrait }}{{ warnf "content/_index.md: portrait %q not found under assets/" . }}{{ end }}
+{{- end }}
+<section class="shell intro{{ if $portrait }} intro--portrait{{ end }}" aria-labelledby="intro-name">
+  <div class="intro__text">
+    <h1 class="intro__name" id="intro-name">{{ .Title }}</h1>
+    {{- with .Params.affiliation }}
+    <p class="intro__affiliation">{{ . }}</p>
+    {{- end }}
+    <div class="intro__bio">
+      {{- .Content }}
+    </div>
+    <div class="intro__actions">
+      {{- partial "links.html" (dict "links" site.Params.links) }}
+      {{- with index (site.Params.emails | default slice) 0 }}
+      <a class="intro__email" href="mailto:{{ .address }}">{{ .address }}</a>
+      {{- end }}
+    </div>
+  </div>
+  {{- with $portrait }}
+  {{- $img := .Fill "512x640 Center q85" }}
+  <div class="intro__portrait">
+    <img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="Portrait of {{ $.Title }}">
+  </div>
+  {{- end }}
+</section>

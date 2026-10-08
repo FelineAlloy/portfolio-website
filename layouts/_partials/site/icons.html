@@ -1,0 +1,14 @@
+{{- /*
+  Browser and home-screen icons, generated from the portrait in content/_index.md:
+  a square crop from the top of the photo (head and shoulders), resized at build.
+*/ -}}
+{{- with site.Home.Params.portrait }}
+  {{- with resources.Get . }}
+    {{- $side := math.Min .Width .Height | mul 0.7 | int }}
+    {{- $face := .Crop (printf "%dx%d Top" $side $side) }}
+    {{- $icon := $face.Resize "64x64 png" }}
+    {{- $touch := $face.Resize "180x180 png" }}
+<link rel="icon" href="{{ $icon.RelPermalink }}" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="{{ $touch.RelPermalink }}">
+  {{- end }}
+{{- end -}}

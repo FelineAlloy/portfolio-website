@@ -1,0 +1,8 @@
+{{- /* Build-time check: warn about entries whose group is missing from data/groups.toml. */ -}}
+{{- $known := slice }}
+{{- range hugo.Data.groups.groups }}{{ $known = $known | append .id }}{{ end }}
+{{- range where site.RegularPages "Section" "projects" }}
+  {{- if not (in $known .Params.group) }}
+    {{- warnf "%s: group %q is not listed in data/groups.toml, so it is not shown on the home page" .File.Path .Params.group }}
+  {{- end }}
+{{- end -}}

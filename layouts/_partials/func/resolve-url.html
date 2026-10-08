@@ -1,0 +1,20 @@
+{{- /*
+  Turns a link written in content or config into a URL that works under any baseURL.
+  Context: dict "url" (string) and optional "page" (the page the link was written on).
+
+    https://… and mailto:…   unchanged
+    #id                      anchor on the home page
+    file.pdf                 a file next to the page (page bundle resource)
+    /path                    a file under static/
+*/ -}}
+{{- $url := .url -}}
+{{- if or (strings.Contains $url "://") (hasPrefix $url "mailto:") -}}
+  {{- /* external: keep as written */ -}}
+{{- else if hasPrefix $url "#" -}}
+  {{- $url = printf "%s%s" site.Home.RelPermalink $url -}}
+{{- else if and .page (.page.Resources.Get $url) -}}
+  {{- $url = (.page.Resources.Get $url).RelPermalink -}}
+{{- else -}}
+  {{- $url = strings.TrimPrefix "/" $url | relURL -}}
+{{- end -}}
+{{- return $url -}}

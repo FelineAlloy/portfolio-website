@@ -1,0 +1,12 @@
+{{- /* One group of entries. Context: a group from data/groups.toml. */ -}}
+{{- $entries := where (where site.RegularPages "Section" "projects") "Params.group" .id }}
+{{- with $entries }}
+<section class="group" aria-labelledby="group-{{ $.id }}">
+  <h2 class="group__title" id="group-{{ $.id }}">{{ $.title }}</h2>
+  <ul class="group__entries">
+    {{- range .ByWeight }}
+    <li>{{ partial "work/entry.html" . }}</li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}

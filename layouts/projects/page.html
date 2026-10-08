@@ -1,12 +1,15 @@
 {{ define "main" }}
-<article>
-  <div class="page-head">
-    <a class="label back" href="{{ site.Home.RelPermalink }}#projects">← Projects</a>
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.summary }}<p class="lede">{{ . }}</p>{{ end }}
-    {{ partial "tags.html" . }}
-    {{ with .Params.links }}<p class="links">{{ range . }}<a href="{{ .url }}">{{ .name }}</a>{{ end }}</p>{{ end }}
+<article class="shell page">
+  <header class="page__head">
+    <a class="page__back" href="{{ site.Home.RelPermalink }}#work">{{ partial "icon.html" "arrow-left" }}All work</a>
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{- partial "work/meta.html" . }}
+    {{- with .Params.summary }}<p class="page__lede">{{ . }}</p>{{ end }}
+    {{- with .Params.result }}<p class="result">{{ . }}</p>{{ end }}
+    {{- with .Params.links }}{{ partial "links.html" (dict "links" . "page" $ "class" "page__links") }}{{ end }}
+  </header>
+  <div class="prose">
+    {{- .Content }}
   </div>
-  <div class="prose">{{ .Content }}</div>
 </article>
 {{ end }}
