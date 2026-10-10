@@ -1,10 +1,12 @@
 ---
 title: "QR-DQN for CleanRL"
-summary: "Open-source contribution of Quantile Regression DQN to CleanRL. Our implementation matches or exceeds the original paper on 4/5 Atari games tested."
-date: 2026-01-01 # TODO: exact month
+summary: "Open-source contribution of Quantile Regression DQN to CleanRL."
+date: 2026-01-01
 group: research
 weight: 1
 kind: "Research project"
+supervisor: "Dr. Simo Alami"
+result: "Beats the paper's QR-DQN-0 on 4/5 Atari games and QR-DQN-1 on 3/5"
 image: pong_distrib.png
 links:
   - name: Code
@@ -24,13 +26,9 @@ Work was done as part of a semester project under the supervision of [Dr. Simo A
 
 Wrote a [report](QRDQN_Report.pdf) and held a [defense](QRDQN_Presentation.pdf) of my work.
 
-{{< video src="rl-video-episode-8.mp4" caption="Our QR-DQN implementation playing Q*Bert" pixelated=true >}}
-
-![Return distributions learned on Pong](pong_distrib.png "Example of generated cumulative distribution functions.")
-
 ## Results
 
-Evaluated my implementation on 5 games of the Atari 2600 benchmark. Matched the performance of the original paper on these games.
+Evaluated my implementation on 5 games of the Atari 2600 benchmark. It beats the paper's QR-DQN-0 on 4 of the 5 games and QR-DQN-1 on 3.
 
 | Game | DQN | C51 | QR-DQN-0 | QR-DQN-1 | Ours |
 |---|---|---|---|---|---|
@@ -40,9 +38,13 @@ Evaluated my implementation on 5 games of the Atari 2600 benchmark. Matched the 
 | Phoenix | 8,485.2 | 17,490 | 65,767 | 16,585 | **124,298** |
 | Q*Bert | 13,117.3 | 23,784 | 26,946 | **572,510** | 26,822 |
 
-*Best agent performance: max of the average score over 10 games evaluated every 1M steps during training. Higher is better.*
+*Best agent performance: maximum of the average score over 10 games evaluated every 1M steps during training. Higher is better.*
 
-Our results above were obtained with κ_huber = 1, same as QR-DQN-1.
+My results above were obtained with κ_huber = 1, same as QR-DQN-1.
+
+{{< video src="rl-video-episode-8.mp4" caption="My QR-DQN implementation playing Q*Bert" pixelated=true >}}
+
+![Return distributions learned on Pong](pong_distrib.png "Example of generated cumulative distribution functions.")
 
 {{< gallery >}}
 ![Battle Zone](SS_BattleZone.png "Battle Zone")
@@ -54,7 +56,7 @@ Our results above were obtained with κ_huber = 1, same as QR-DQN-1.
 
 ## Main files
 
-The work lives on the `add-qrdqn` branch of my fork:
+The work lives on the `add-qrdqn` branch of [my fork](https://github.com/FelineAlloy/cleanrl/tree/add-qrdqn):
 
 - `cleanrl/qrdqn.py`: classic control environments
 - `cleanrl/qrdqn_atari.py`: Atari 2600 environments, with a convolutional network

@@ -1,10 +1,10 @@
 ---
 title: "ESA Moon Camp Pioneers"
-summary: "Design and 3D modelling of a lunar base in Fusion 360; Worked on the airlock, leisure area and more."
+summary: "Design and 3D modelling of a lunar base in Fusion 360. Worked on the airlock, leisure area and more."
 date: 2021-01-01
 group: space
 weight: 3
-kind: "Competition"
+kind: "International Competition"
 result: "3rd Prize"
 links:
   - name: Competition Winners

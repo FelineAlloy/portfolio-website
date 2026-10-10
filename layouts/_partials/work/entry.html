@@ -14,7 +14,11 @@
 {{- if and .Params.image (not $image) }}{{ warnf "%s: image %q not found next to the page" .File.Path .Params.image }}{{ end }}
 <article class="entry{{ if $href }} entry--link{{ end }}{{ if $image }} entry--figure{{ end }}">
   {{- with $image }}
-  {{- $thumb := cond (gt .Width 960) (.Resize "960x") . }}
+  {{- /* Cards show figures at about 300px: serve WebP at most 640px wide (2x). */}}
+  {{- $thumb := . }}
+  {{- if in (slice "svg" "gif") .MediaType.SubType }}
+  {{- else if gt .Width 640 }}{{ $thumb = .Process "resize 640x webp q80" }}
+  {{- else }}{{ $thumb = .Process "webp q85" }}{{ end }}
   <div class="entry__media">
     <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="" loading="lazy" decoding="async">
   </div>

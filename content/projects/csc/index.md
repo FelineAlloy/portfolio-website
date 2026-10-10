@@ -1,11 +1,11 @@
 ---
 title: "BX Computer Science Committee (CSC)"
-summary: "As vice president, led a team of 10 students to organise seminars, competitions and other events for 400+ members."
-period: "March 2025 – June 2026"
+summary: "Led a team of 10 students to organise seminars, competitions and other events for 400+ members."
+period: "2025 – 2026"
 date: 2025-01-01
 group: student-orgs
 weight: 2
-kind: "Student Committee"
+kind: "Vice President"
 links:
   - name: Diffusion Presentation
     url: Diffusion_Presentation.pdf
