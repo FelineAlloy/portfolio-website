@@ -1,12 +1,18 @@
 {{- /*
   Markdown images. A standalone image becomes a <figure>; images sharing a paragraph
   (e.g. inside the gallery shortcode) stay inline. The optional "title" is the caption.
+  Bundle images wider than 640px are served as WebP, capped at twice the reading column
+  (1344px); smaller ones (pixel-art screenshots, small plots) stay as they are.
 */ -}}
 {{- $src := partial "func/resolve-url.html" (dict "url" .Destination "page" .Page) }}
 {{- $size := "" }}
 {{- with .Page.Resources.Get .Destination }}
-  {{- if and (eq .MediaType.MainType "image") (ne .MediaType.SubType "svg") }}
-    {{- $size = printf ` width="%d" height="%d"` .Width .Height }}
+  {{- if and (eq .MediaType.MainType "image") (ne .MediaType.SubType "svg") (ne .MediaType.SubType "gif") }}
+    {{- $img := . }}
+    {{- if gt .Width 1344 }}{{ $img = .Process "resize 1344x webp q85" }}
+    {{- else if gt .Width 640 }}{{ $img = .Process "webp q85" }}{{ end }}
+    {{- $src = $img.RelPermalink }}
+    {{- $size = printf ` width="%d" height="%d"` $img.Width $img.Height }}
   {{- end }}
 {{- end }}
 {{- /* A caption identical to the alt text would be read out twice by screen readers. */}}

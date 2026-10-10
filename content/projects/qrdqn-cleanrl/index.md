@@ -1,6 +1,6 @@
 ---
 title: "QR-DQN for CleanRL"
-summary: "Single-file Quantile Regression DQN implementations for CleanRL, covering classic control and Atari."
+summary: "Open-source contribution of Quantile Regression DQN to CleanRL. Our implementation matches or exceeds the original paper on 4/5 Atari games tested."
 date: 2026-01-01 # TODO: exact month
 group: research
 weight: 1
@@ -42,7 +42,7 @@ Evaluated my implementation on 5 games of the Atari 2600 benchmark. Matched the 
 
 *Best agent performance: max of the average score over 10 games evaluated every 1M steps during training. Higher is better.*
 
-Our results above were obtained with κ_huber = 1, same as QRDQN-1.
+Our results above were obtained with κ_huber = 1, same as QR-DQN-1.
 
 {{< gallery >}}
 ![Battle Zone](SS_BattleZone.png "Battle Zone")
@@ -57,4 +57,4 @@ Our results above were obtained with κ_huber = 1, same as QRDQN-1.
 The work lives on the `add-qrdqn` branch of my fork:
 
 - `cleanrl/qrdqn.py`: classic control environments
-- `cleanrl/qrdqn_atari.py`: Atari2600 environments, with a convolutional network
+- `cleanrl/qrdqn_atari.py`: Atari 2600 environments, with a convolutional network
