@@ -8,7 +8,7 @@ kind: "Electronics team member"
 period: "2024 – 2026"
 image: bspd-pcb.png
 ---
-IP Paris Racing Team competes in Formula Student, an international engineering competition where student teams design, build and race a formula-style car. I'm on the Electronics team, working on the car's safety-critical low-voltage systems.
+The IP Paris Racing Team is working on its first Formula Student car. Formula Student is an international engineering competition where student teams design, build and race a formula-style car. I worked on the Electronics team, on the car's safety-critical low-voltage systems.
 
 ## My work
 

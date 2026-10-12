@@ -1,6 +1,6 @@
 ---
 title: "Swarm Rescue"
-summary: "A drone-swarm rescue strategy for the Swarm-Rescue simulation competition."
+summary: "A drone-swarm control for the Swarm-Rescue simulation competition."
 date: 2024-01-01
 group: research
 weight: 2

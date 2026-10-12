@@ -18,9 +18,9 @@ links:
   - name: CleanRL library
     url: https://github.com/vwxyzjn/cleanrl
 ---
-[CleanRL](https://github.com/vwxyzjn/cleanrl) provides single-file, research-friendly implementations of deep RL algorithms, but it has no QR-DQN. This project adds one, following the library's conventions of one self-contained file per algorithm variant.
+[CleanRL](https://github.com/vwxyzjn/cleanrl) provides single-file, research-friendly implementations of deep RL algorithms. This project aims to add the QR-DQN algorithm, following the library's conventions.
 
-QR-DQN [(Dabney et al.)](https://arxiv.org/abs/1710.10044) replaces DQN's single expected return with a fixed set of quantiles of the return distribution, trained with quantile regression.
+QR-DQN [(Dabney et al.)](https://arxiv.org/abs/1710.10044) replaces DQN's single expected return with a fixed set of quantiles estimating the return distribution, trained with quantile regression.
 
 Work was done as part of a semester project under the supervision of [Dr. Simo Alami](https://www.lix.polytechnique.fr/~alamichehboune/).
 

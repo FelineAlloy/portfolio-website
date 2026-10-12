@@ -22,7 +22,7 @@ You can find some of the things we were up to on our [LinkedIn](https://www.link
 
 A highlight of my time at CSC (bxAI back then) was the opportunity of hosting my own seminar on Diffusion!
 
-["Introduction to Diffusion"](https://www.linkedin.com/posts/bxai_ai-diffusionmodels-bxai-ugcPost-7320091607020539904-H9B7) covered the intuition and the mathematics of DDPM. Our first event in March 2025 (first year), as bxAI. My slides are available [here](Diffusion_Presentation.pdf).
+["Introduction to Diffusion"](https://www.linkedin.com/posts/bxai_ai-diffusionmodels-bxai-ugcPost-7320091607020539904-H9B7) covered the intuition and the mathematics of DDPM. It was our first event in March 2025 (first year), as bxAI. My slides are available [here](Diffusion_Presentation.pdf).
 
 {{< gallery >}}
 ![Presenting the "What is diffusion?" slide to a lecture hall](diffusion_seminar_1.jpg)
