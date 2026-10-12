@@ -13,7 +13,7 @@
 {{- partial "site/icons.html" . }}
 <link rel="preload" href="{{ "fonts/hanken-grotesk-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 {{- /* Stylesheets in assets/css/, bundled in this order into one minified, fingerprinted file. */}}
-{{- $sheets := slice "fonts" "tokens" "base" "layout" "buttons" "intro" "work" "page" "prose" "experience" }}
+{{- $sheets := slice "fonts" "tokens" "base" "layout" "buttons" "intro" "work" "page" "prose" "experience" "awards" }}
 {{- $bundle := slice }}
 {{- range $sheets }}
   {{- $bundle = $bundle | append (resources.Get (printf "css/%s.css" .)) }}

@@ -49,10 +49,14 @@ disableKinds = ["taxonomy", "term", "rss", "sitemap"]
   params = { href = "/experience/" }
   weight = 2
 [[menus.main]]
+  name = "Awards"
+  params = { href = "/awards/" }
+  weight = 3
+[[menus.main]]
   name = "CV"
   params = { href = "/Resume_Luxin_Matasaru.pdf" }
-  weight = 3
+  weight = 4
 [[menus.main]]
   name = "Contact"
   params = { href = "#contact" }
-  weight = 4
+  weight = 5

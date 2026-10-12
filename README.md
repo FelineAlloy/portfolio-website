@@ -19,6 +19,7 @@ hugo server -D     # also show drafts
 | Email addresses, CV/GitHub/LinkedIn buttons, nav | `hugo.toml` |
 | The groups on the home page and their order | `data/groups.toml` |
 | An internship or job (Experience page) | `content/experience/<slug>.md` |
+| An award (Awards page) | `content/awards/<slug>.md` |
 | A project or experience | `content/projects/<slug>.md` or `content/projects/<slug>/index.md` |
 
 **Add a project or experience**
@@ -31,6 +32,8 @@ hugo new projects/my-project/index.md      # an entry with images, PDFs or video
 Fill in the front matter (the template explains every field) and delete `draft: true`. The entry appears on the home page in its `group`, ordered by `weight`. An entry with a body gets its own page; an entry with `build: render: never` is a card only, linking to its first link.
 
 **Add a role to the Experience page:** create `content/experience/<slug>.md` with `title` (position), `org`, `period` and `date` (sorts newest first) in the front matter, and the details as a bullet list. It appears on the Experience page and in the home page summary.
+
+**Add an award:** create `content/awards/<slug>.md` with `title` (the award, e.g. "Bronze medal"), `event`, `date` (sorts newest first) and optionally `period` (replaces the year, e.g. "2021 & 2022"). Link the event with `project: "/projects/<slug>"` (its page here) or `url:` (the official results).
 
 **Email addresses:** `params.emails` in `hugo.toml`. The first is shown in the intro; all are listed under Contact with their institution.
 
@@ -62,18 +65,20 @@ Keep the `HUGO_VERSION` in the workflow in step with the version you use locally
 ```
 hugo.toml               site config: links, emails, nav
 data/groups.toml        home page groups
-content/                pages (markdown): projects/ holds the work entries, experience/ the roles
+content/                pages (markdown): projects/ holds the work entries, experience/ the roles, awards/ the awards
 layouts/
   baseof.html           page skeleton
   home.html             intro + groups
   projects/page.html    an entry's own page
   experience/section.html   the Experience page
+  awards/section.html   the Awards page
   404.html
   _partials/
     site/               head, header, footer
     home/               intro, group, experience summary, build-time group check
     work/               entry card, meta line
     experience/         one role
+    awards/             one award
     links.html          pill link row
     icon.html           inline SVG icons
     func/resolve-url.html   turns any link into one that works under the Pages sub-path

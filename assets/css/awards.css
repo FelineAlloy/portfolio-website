@@ -1,0 +1,32 @@
+/* Awards page: one row per award, year on the left. */
+
+/* The head rule runs the full width, like the award rules below it. */
+.page--awards .page__head { max-width: none; }
+.page--awards .page__lede { max-width: var(--measure); }
+
+.awards {
+  margin-top: var(--space-3);
+  list-style: none;
+}
+
+.award {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, var(--measure));
+  gap: var(--space-1) var(--space-6);
+  align-items: baseline;
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+.award__event {
+  font-size: var(--text-base);
+  line-height: 1.4;
+  letter-spacing: normal;
+}
+.award__event a { color: var(--ink); }
+.award__event a:hover { color: var(--accent); }
+.award__event .icon { margin-left: 0.25em; color: var(--muted); }
+.award .result { margin-top: var(--space-1); }
+
+@media (max-width: 40rem) {
+  .award { grid-template-columns: 1fr; }
+}

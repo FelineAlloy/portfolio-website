@@ -197,6 +197,7 @@ A centered shell of 72rem plus a fluid gutter (clamp 1rem to 2.5rem). Spacing is
 - **Project page:** header and prose share the 42rem measure; header ends on a hairline.
 - **Narrow screens (max-width 40rem):** work grids drop to one column; figure entries become rows with a 5.5rem square thumbnail (cropped to fill) beside the text; tables tighten (0.8125rem, smaller cell padding, wrapping headers).
 - **Experience page:** an 11rem dates column beside the roles at the reading measure; each role closes on a hairline, and the page header rule runs the same full width. Stacks on narrow screens.
+- **Awards page:** the same 11rem year column beside the awards, one compact row each on a hairline (1rem padding), newest first; the head rule runs the full width. Stacks on narrow screens.
 - **Footer:** 6rem above, a full-width fern band, contact block left (every address with its institution, then the pill links), copyright right, wrapping on small screens.
 
 ## Elevation & Depth
@@ -221,7 +222,7 @@ Quiet, outlined pills that read as actions, not banners.
 Accent colored with a 1px underline at 45% of the text color, offset 0.2em; hover moves to the strong accent and a full-strength underline. Evidence links and nav links are muted and turn accent or ink on hover.
 
 ### Navigation
-Sticky header with the name (ink, 600, -0.01em) and a wrapping list of muted 0.9375rem links (Work, Experience, CV, Contact); on narrow screens the nav wraps below the name; links turn ink on hover. The current page (Experience) or section (Work, on project pages) carries `aria-current` and shows in ink with a 1px accent underline. Skip link appears on focus as an ink pill-cornered tab.
+Sticky header with the name (ink, 600, -0.01em) and a wrapping list of muted 0.9375rem links (Work, Experience, Awards, CV, Contact); on narrow screens the nav wraps below the name; links turn ink on hover. The current page (Experience) or section (Work, on project pages) carries `aria-current` and shows in ink with a 1px accent underline. Skip link appears on focus as an ink pill-cornered tab.
 
 ### Work Entry (signature)
 The unit of the catalogue.
@@ -233,6 +234,9 @@ The unit of the catalogue.
 ### Experience
 - **Role (experience page):** period (muted, tabular) on the left; organisation and position in one heading (organisation as a title, position muted below it), then the role's bullet points with solid disc markers.
 - **Summary (home page):** after the work groups, a titled list of rows (position, organisation in 600 on the left, period on the right) on strong hairlines, each linking to its role on the experience page; an "All details" link with an arrow-right icon sits beside the title.
+
+### Award
+- **Row (awards page):** year (muted, tabular) on the left; the event as a heading in ink at body size (600), linked to its project page or official results when one exists (ink, accent on hover); the award below it as an accent result.
 
 ### Intro Actions
 Pill links (CV, GitHub) followed by the primary email address as a plain medium-weight accent link, in one wrapping row.

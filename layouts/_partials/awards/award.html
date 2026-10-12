@@ -1,0 +1,18 @@
+{{- /*
+  One award on the awards page: year on the left, the event and the award on the right.
+  Context: an award page. The event links to its project page (`project`) or to its
+  results (`url`) when either is given.
+*/ -}}
+{{- $href := "" }}
+{{- with .Params.project }}{{ with site.GetPage . }}{{ $href = .RelPermalink }}{{ end }}{{ end }}
+{{- with .Params.url }}{{ $href = partial "func/resolve-url.html" (dict "url" . "page" $) }}{{ end }}
+<article class="award" id="{{ .File.ContentBaseName }}">
+  <p class="award__year meta">{{ .Params.period | default .Date.Year }}</p>
+  <div>
+    <h2 class="award__event">
+      {{- if $href }}<a href="{{ $href }}"{{ if strings.Contains $href "://" }} rel="noopener"{{ end }}>{{ .Params.event }}{{ if strings.Contains $href "://" }}{{ partial "icon.html" "arrow-up-right" }}{{ end }}</a>
+      {{- else }}{{ .Params.event }}{{ end -}}
+    </h2>
+    <p class="result">{{ .Title }}</p>
+  </div>
+</article>
