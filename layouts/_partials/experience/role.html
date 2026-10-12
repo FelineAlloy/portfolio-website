@@ -2,8 +2,10 @@
 <article class="role" id="{{ .File.ContentBaseName }}">
   <p class="role__period meta">{{ .Params.period | default .Date.Year }}</p>
   <div class="role__body">
-    <h2 class="role__org">{{ .Params.org | default .Title }}</h2>
-    {{- if .Params.org }}<p class="role__position">{{ .Title }}</p>{{ end }}
+    <h2 class="role__title">
+      <span class="role__org">{{ .Params.org | default .Title }}</span>
+      {{- if .Params.org }}<span class="visually-hidden">, </span><span class="role__position">{{ .Title }}</span>{{ end }}
+    </h2>
     <div class="role__details prose">
       {{- .Content }}
     </div>

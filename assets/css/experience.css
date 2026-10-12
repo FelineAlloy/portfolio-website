@@ -1,5 +1,9 @@
 /* Experience page (roles) and its summary on the home page. */
 
+/* The head rule runs the full width, like the role rules below it. */
+.page--roles .page__head { max-width: none; }
+.page--roles .page__lede { max-width: var(--measure); }
+
 .roles {
   margin-top: var(--space-5);
   list-style: none;
@@ -13,10 +17,18 @@
   border-bottom: 1px solid var(--line);
 }
 .role__period { padding-top: 0.2em; }
-.role__org { font-size: var(--text-lg); letter-spacing: -0.015em; }
-.role__position { margin-top: var(--space-1); color: var(--muted); }
+.role__org { display: block; font-size: var(--text-lg); letter-spacing: -0.015em; }
+.role__position {
+  display: block;
+  margin-top: var(--space-1);
+  color: var(--muted);
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: normal;
+}
 .role .role__details { padding-top: var(--space-4); }
 .role__details > :last-child { margin-bottom: 0; }
+.role__details ul { list-style-type: disc; }
 
 @media (max-width: 40rem) {
   .role { grid-template-columns: 1fr; }
