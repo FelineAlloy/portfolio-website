@@ -54,6 +54,8 @@
 /* Figures (render-image hook, video shortcode) */
 .figure { margin: var(--space-6) 0; }
 .figure img, .figure video {
+  max-height: var(--figure-max-height);
+  width: auto;
   border-radius: var(--radius);
   background: var(--mount);
 }
@@ -68,16 +70,19 @@
 .figure--video video { width: min(100%, 26rem); }
 .figure--pixelated video { image-rendering: pixelated; }
 
-/* Gallery shortcode: inline figures in a wrapping grid */
+/* Gallery shortcode: inline figures in a wrapping grid; photos two across in the
+   reading column, low-resolution frames as small pixelated tiles. */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   gap: var(--space-4);
   margin: var(--space-6) 0;
 }
 .gallery p { display: contents; }
 .gallery .figure { margin: 0; }
-.gallery img { width: 100%; image-rendering: pixelated; }
+.gallery img { width: 100%; }
+.gallery--pixelated { grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr)); }
+.gallery--pixelated img { image-rendering: pixelated; }
 
 /* Tables (render-table hook) */
 .table-scroll {

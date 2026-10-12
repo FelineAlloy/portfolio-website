@@ -1,2 +1,5 @@
-{{- /* {{< gallery >}} …images, one per line… {{< /gallery >}}: lays images out in a wrapping grid. */ -}}
-<div class="gallery">{{ .Inner | .Page.RenderString }}</div>
+{{- /*
+  {{< gallery >}} …images, one per line… {{< /gallery >}}: lays images out in a wrapping grid.
+  {{< gallery pixelated=true >}} uses small tiles and keeps low-resolution frames (e.g. Atari) sharp.
+*/ -}}
+<div class="gallery{{ if .Get "pixelated" }} gallery--pixelated{{ end }}">{{ .Inner | .Page.RenderString }}</div>

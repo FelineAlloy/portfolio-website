@@ -46,7 +46,7 @@ My results above were obtained with κ_huber = 1, same as QR-DQN-1.
 
 ![Return distributions learned on Pong](pong_distrib.png "Example of generated cumulative distribution functions.")
 
-{{< gallery >}}
+{{< gallery pixelated=true >}}
 ![Battle Zone](SS_BattleZone.png "Battle Zone")
 ![Double Dunk](SS_DoubleDunk.png "Double Dunk")
 ![Name this Game](SS_NameThisGame.png "Name this Game")
