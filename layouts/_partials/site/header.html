@@ -4,7 +4,11 @@
     <nav aria-label="Main">
       <ul class="site-nav">
         {{- range site.Menus.main }}
-        <li><a href="{{ partial "func/resolve-url.html" (dict "url" .Params.href) }}">{{ .Name }}</a></li>
+        {{- $url := partial "func/resolve-url.html" (dict "url" .Params.href) }}
+        {{- $current := "" }}
+        {{- if eq $url $.RelPermalink }}{{ $current = "page" }}
+        {{- else if and (eq .Params.href "#work") (eq $.Section "projects") $.IsPage }}{{ $current = "true" }}{{ end }}
+        <li><a href="{{ $url }}"{{ with $current }} aria-current="{{ . }}"{{ end }}>{{ .Name }}</a></li>
         {{- end }}
       </ul>
     </nav>

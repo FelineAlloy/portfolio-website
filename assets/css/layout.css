@@ -46,6 +46,12 @@
   text-decoration: none;
 }
 .site-nav a:hover { color: var(--ink); }
+/* The current page (or section) is ink, underlined in the accent. */
+.site-nav a[aria-current] {
+  color: var(--ink);
+  text-decoration: underline 1px var(--accent);
+  text-underline-offset: 0.35em;
+}
 
 /* Footer */
 /* The page closes on a pale fern band. */
