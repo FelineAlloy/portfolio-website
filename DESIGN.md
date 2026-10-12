@@ -9,6 +9,7 @@ colors:
   muted: "#625F57"
   line: "#E2DFD5"
   line-strong: "#C9C5B8"
+  control-line: "#8C897F"
   fern: "#2C6E2F"
   fern-strong: "#215223"
   fern-wash: "#E2E8DD"
@@ -22,12 +23,13 @@ colors:
   muted-dark: "#A3A097"
   line-dark: "#2B2A27"
   line-strong-dark: "#45433E"
+  control-line-dark: "#726F69"
   fern-dark: "#86C987"
   fern-strong-dark: "#AAD9AB"
   fern-wash-dark: "#212920"
   mount-dark: "#1E201D"
   mount-hover-dark: "#222722"
-  band-dark: "#1E201D"
+  band-dark: "#252D24"
 typography:
   display:
     fontFamily: "Hanken Grotesk, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif"
@@ -143,13 +145,14 @@ A warm, low-chroma paper-and-ink neutral set carrying a single deep accent that 
 ### Neutral
 - **Warm Paper** (`paper`): page ground, sticky header ground, text on primary pills.
 - **Fern Mount** (`mount`): paper with 7% fern; the board behind figure thumbnails, project-page figures and videos. Hover deepens it to `mount-hover`.
-- **Fern Band** (`band`): paper with 9% fern; the full-width contact footer, so the page closes on color.
+- **Fern Band** (`band`): paper with 9% fern; the full-width contact footer, so the page closes on color. In dark mode it is one visible step above paper (1.3:1), still near-neutral.
 - **Plate** (`plate`): one step deeper than paper, neutral; inline code, code blocks and the portrait's loading ground.
 - **Ink** (`ink`): headings, entry titles, primary pill fill, strong text.
 - **Soft Ink** (`ink-soft`): body copy, bio, ledes, entry summaries.
 - **Warm Grey** (`muted`): meta lines, captions, nav links, evidence links, table headers, list markers.
 - **Hairline** (`line`): header rule, table row rules, horizontal rules. Home sections have no rule; space and the section title separate them.
-- **Strong Hairline** (`line-strong`): entry top rules, pill outlines, table header rule, blockquote rule, table scrollbar.
+- **Strong Hairline** (`line-strong`): entry top rules, table header rule, blockquote rule, table scrollbar.
+- **Control Line** (`control-line`): pill outlines; darker than the hairlines so an outlined action holds 3:1 against paper (3.3 light, 3.7 dark).
 - The `-dark` neutrals replace these one for one under `prefers-color-scheme: dark`; they stay near-neutral with only a trace of warmth.
 
 ### Named Rules
@@ -193,7 +196,7 @@ A centered shell of 72rem plus a fluid gutter (clamp 1rem to 2.5rem). Spacing is
 - **Entries:** each starts on a strong hairline so rows align when figure and text entries mix.
 - **Project page:** header and prose share the 42rem measure; header ends on a hairline.
 - **Narrow screens (max-width 40rem):** work grids drop to one column; figure entries become rows with a 5.5rem square thumbnail (10% inset) beside the text; tables tighten (0.8125rem, smaller cell padding, wrapping headers).
-- **Experience page:** an 11rem dates column beside the roles at the reading measure; each role closes on a hairline. Stacks on narrow screens.
+- **Experience page:** an 11rem dates column beside the roles at the reading measure; each role closes on a hairline, and the page header rule runs the same full width. Stacks on narrow screens.
 - **Footer:** 6rem above, a full-width fern band, contact block left (every address with its institution, then the pill links), copyright right, wrapping on small screens.
 
 ## Elevation & Depth
@@ -209,7 +212,7 @@ Gently rounded rectangles (6px) for plates, figures, videos, the portrait and co
 ### Buttons (pill links)
 Quiet, outlined pills that read as actions, not banners.
 - **Shape:** full pill (999px), min height 2.5rem, 0.5rem by 1.125rem padding, 0.9375rem medium text, 0.4em gap to icon or note.
-- **Default:** transparent with a strong-hairline outline and ink text; hover darkens the outline to ink.
+- **Default:** transparent with a `control-line` outline and ink text; hover darkens the outline to ink. The "PDF" note on the primary pill keeps the full paper color.
 - **Primary:** fern fill, paper text (used for the CV, the one filled action); hover deepens to the strong fern.
 - **Extras:** a small muted file-type note ("PDF", 0.75rem medium) after PDF links; an inline 1em arrow-up-right SVG after external links.
 - **Transitions:** border, background and color over 160ms with a soft ease-out (`cubic-bezier(0.22, 1, 0.36, 1)`).
@@ -218,7 +221,7 @@ Quiet, outlined pills that read as actions, not banners.
 Accent colored with a 1px underline at 45% of the text color, offset 0.2em; hover moves to the strong accent and a full-strength underline. Evidence links and nav links are muted and turn accent or ink on hover.
 
 ### Navigation
-Sticky header with the name (ink, 600, -0.01em) and a wrapping list of muted 0.9375rem links (Work, Experience, CV, Contact); on narrow screens the nav wraps below the name that turn ink on hover. Skip link appears on focus as an ink pill-cornered tab.
+Sticky header with the name (ink, 600, -0.01em) and a wrapping list of muted 0.9375rem links (Work, Experience, CV, Contact); on narrow screens the nav wraps below the name; links turn ink on hover. The current page (Experience) or section (Work, on project pages) carries `aria-current` and shows in ink with a 1px accent underline. Skip link appears on focus as an ink pill-cornered tab.
 
 ### Work Entry (signature)
 The unit of the catalogue.
@@ -228,7 +231,7 @@ The unit of the catalogue.
 - **External:** titles linking off-site carry the arrow-up-right icon.
 
 ### Experience
-- **Role (experience page):** period (muted, tabular) on the left; organisation as a title, position muted below, then the role's bullet points.
+- **Role (experience page):** period (muted, tabular) on the left; organisation and position in one heading (organisation as a title, position muted below it), then the role's bullet points with solid disc markers.
 - **Summary (home page):** after the work groups, a titled list of rows (position, organisation in 600 on the left, period on the right) on strong hairlines, each linking to its role on the experience page; an "All details" link with an arrow-right icon sits beside the title.
 
 ### Intro Actions
@@ -238,9 +241,9 @@ Pill links (CV, GitHub) followed by the primary email address as a plain medium-
 Back link (muted, arrow-left icon), headline title, meta line, lede, result in accent, pill links row; capped at the reading measure and closed by a hairline.
 
 ### Prose Figures, Video, Gallery, Tables
-- **Figures:** on the fern mount, 6px radius, muted 0.875rem caption below.
+- **Figures:** on the fern mount, 6px radius, muted 0.875rem caption below; capped at 75% of the viewport height so portrait photos stay within one screen.
 - **Video:** up to 26rem wide; an optional pixelated rendering keeps low-resolution footage sharp.
-- **Gallery:** wrapping grid of small figures (6rem minimum track), pixelated scaling.
+- **Gallery:** wrapping grid of photos (14rem minimum track, two across in the reading column); `pixelated=true` switches to small 6rem tiles with pixelated scaling for low-resolution frames.
 - **Tables:** wrapped in a focusable scroll region with a thin themed scrollbar; muted semibold headers on a strong rule, hairline row rules, tabular numerals, bold cells in accent; tighten on narrow screens and scroll when still too wide.
 - **Code:** plate background, system mono; blocks scroll horizontally.
 
