@@ -11,7 +11,8 @@
   --ink-soft: #3B3A35;      /* body copy */
   --muted: #625F57;         /* meta, captions, secondary text */
   --line: #E2DFD5;          /* hairlines */
-  --line-strong: #C9C5B8;   /* button outlines, table header rule */
+  --line-strong: #C9C5B8;   /* entry rules, table header rule */
+  --control-line: #8C897F;  /* button outlines: 3:1 against paper */
 
   /* Accent: fern green, the only color. Links, results, focus, hover. */
   --accent: #2C6E2F;
@@ -62,11 +63,12 @@
     --muted: #A3A097;
     --line: #2B2A27;
     --line-strong: #45433E;
+    --control-line: #726F69;
     --accent: #86C987;
     --accent-strong: #AAD9AB;
     --accent-wash: #212920;
     --mount: #1E201D;         /* near-neutral: only a hint of fern on dark */
     --mount-hover: #222722;
-    --band: #1E201D;
+    --band: #252D24;          /* one visible step above paper */
   }
 }
