@@ -131,7 +131,7 @@ The theme follows the visitor's OS setting (`prefers-color-scheme`); dark backgr
 - Warm paper ground, near-black ink, warm grey secondary text.
 - One accent, fern green, with fixed jobs: links, results, focus, the primary action, figure mounts and the closing contact band.
 - Hanken Grotesk, self-hosted, regular / medium / semibold; no second family except a system mono for code.
-- Hairline-topped entries in an auto-fill grid; figures contained (never cropped) on plates.
+- Hairline-topped entries in an auto-fill grid; card figures fill their 3:2 frame, cropped to fit; project-page figures are shown whole.
 - Pill-shaped actions; flat surfaces.
 - Every browser surface themed: selection, focus ring, link underline offset, tabular numerals, table scrollbar.
 
@@ -195,7 +195,7 @@ A centered shell of 72rem plus a fluid gutter (clamp 1rem to 2.5rem). Spacing is
 - **Work groups:** each group opens with its title, no rule; entries sit in an auto-fill grid with a 15.5rem minimum track (four across at full width), 3rem row gap, 1.5rem column gap. Groups are separated by 4.5rem.
 - **Entries:** each starts on a strong hairline so rows align when figure and text entries mix.
 - **Project page:** header and prose share the 42rem measure; header ends on a hairline.
-- **Narrow screens (max-width 40rem):** work grids drop to one column; figure entries become rows with a 5.5rem square thumbnail (10% inset) beside the text; tables tighten (0.8125rem, smaller cell padding, wrapping headers).
+- **Narrow screens (max-width 40rem):** work grids drop to one column; figure entries become rows with a 5.5rem square thumbnail (cropped to fill) beside the text; tables tighten (0.8125rem, smaller cell padding, wrapping headers).
 - **Experience page:** an 11rem dates column beside the roles at the reading measure; each role closes on a hairline, and the page header rule runs the same full width. Stacks on narrow screens.
 - **Footer:** 6rem above, a full-width fern band, contact block left (every address with its institution, then the pill links), copyright right, wrapping on small screens.
 
@@ -205,7 +205,7 @@ Flat. No shadows anywhere in the current build. Depth is tonal: figures, thumbna
 
 ## Shapes
 
-Gently rounded rectangles (6px) for plates, figures, videos, the portrait and code blocks; 4px for inline code; 2px for images inside a plate and for focus-ring corners. Actions are full pills (999px). Rules are 1px hairlines in two weights. Figures are always contained inside a 3:2 plate with a 7% inset, never cropped.
+Gently rounded rectangles (6px) for plates, figures, videos, the portrait and code blocks; 4px for inline code; 2px for focus-ring corners. Actions are full pills (999px). Rules are 1px hairlines in two weights. Card figures fill a 3:2 frame edge to edge (cropped to fit); project-page figures are never cropped.
 
 ## Components
 
@@ -226,7 +226,7 @@ Sticky header with the name (ink, 600, -0.01em) and a wrapping list of muted 0.9
 ### Work Entry (signature)
 The unit of the catalogue.
 - **Structure:** strong hairline top, optional mounted figure, title (ink, 600), meta line (muted, tabular), summary (soft ink), result (accent, 600), evidence links row (muted, separated by middots).
-- **Figure:** 3:2 plate, 7% inset, image contained; entries without an `image` are text entries.
+- **Figure:** 3:2 frame with the 6px radius, image covering it edge to edge (cropped to fit; the mount color shows only while it loads); entries without an `image` are text entries.
 - **Interaction:** the title link stretches over the whole entry, so the entry is one click target while its accessible name stays the title; evidence links are stacked above it and stay independently clickable. Hover deepens the mount, scales the figure 1.025 and turns the title accent; focus draws the accent ring around the whole entry. Reduced motion removes the transitions and scale.
 - **External:** titles linking off-site carry the arrow-up-right icon.
 
@@ -253,7 +253,7 @@ Back link (muted, arrow-left icon), headline title, meta line, lede, result in a
 - **Do** take every color, size and space from the tokens in `assets/css/tokens.css`.
 - **Do** change the accent only through the `--accent*` tokens, light and dark together.
 - **Do** let the theme follow `prefers-color-scheme` and keep dark grounds near-neutral.
-- **Do** mount real figures on the plate (3:2, 7% inset, contained) and leave entries without a figure as text entries.
+- **Do** fill card frames with real figures (3:2, cropped to fit) and show project-page figures whole and leave entries without a figure as text entries.
 - **Do** give every entry its evidence links and set outcomes as accent results.
 - **Do** use hairlines and whitespace to separate content.
 - **Do** keep icons as inline 1em stroke SVGs in the current text color.
@@ -262,7 +262,7 @@ Back link (muted, arrow-left icon), headline title, meta line, lede, result in a
 ### Don't:
 - **Don't** add like or view counts, badges, counters or similar gimmicks.
 - **Don't** use a handwritten, serif or second display font.
-- **Don't** crop figures to fill a frame or invent placeholder imagery.
+- **Don't** crop figures on project pages or invent placeholder imagery.
 - **Don't** show both accent palettes on one page.
 - **Don't** put the accent on headings, body text or meta, or add fern regions beyond the mounts and the contact band.
 - **Don't** invent content; unverified facts are written as `TODO`.
