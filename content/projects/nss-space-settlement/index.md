@@ -20,9 +20,11 @@ The design was shaped by requirements found in existing scientific literature as
 
 Our project, [Nova 2](https://nss.org/nss-space-settlement-contest/past-winners/), won the Grand Prize in 2024.
 
+![Render of the Nova 2 settlement: two ring habitats in orbit, with Earth in the distance](IMG-20240528-WA0065.jpg "Our settlement, Nova 2.")
+
 As such, we were invited to the International Space Development Conference (ISDC) to present our project in front of an audience of seasoned space researchers, engineers, entrepreneurs and educators. Even some astronauts!
 
-![Presenting at ISDC](IMG-20240528-WA0059.jpg)
+![Presenting at ISDC](IMG-20240528-WA0059.jpg "Presenting Nova 2 at ISDC 2024.")
 
 I got to meet some incredible people such as Brian McManus from Real Engineering (one of my all-time favourite YouTube channels):
 
