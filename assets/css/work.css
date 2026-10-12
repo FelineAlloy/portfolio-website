@@ -27,6 +27,9 @@
 
 .entry__media {
   display: grid;
+  /* One cell fixed to the mount's size, so tall images scale down inside it
+     instead of stretching the row and being clipped. */
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
   aspect-ratio: 3 / 2;
   margin-bottom: var(--space-4);
