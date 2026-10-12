@@ -10,7 +10,7 @@ result: "Beats the paper's QR-DQN-0 on 4/5 Atari games and QR-DQN-1 on 3/5"
 image: pong_distrib.png
 links:
   - name: Code
-    url: https://github.com/FelineAlloy/cleanrl/tree/add-qrdqn
+    url: https://github.com/vwxyzjn/cleanrl/compare/master...FelineAlloy:cleanrl:add-qrdqn
   - name: Report
     url: QRDQN_Report.pdf
   - name: Defense slides
@@ -56,7 +56,7 @@ My results above were obtained with κ_huber = 1, same as QR-DQN-1.
 
 ## Main files
 
-The work lives on the `add-qrdqn` branch of [my fork](https://github.com/FelineAlloy/cleanrl/tree/add-qrdqn):
+The work lives on the `add-qrdqn` branch of [my fork](https://github.com/vwxyzjn/cleanrl/compare/master...FelineAlloy:cleanrl:add-qrdqn):
 
 - `cleanrl/qrdqn.py`: classic control environments
 - `cleanrl/qrdqn_atari.py`: Atari 2600 environments, with a convolutional network
